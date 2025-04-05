@@ -31,8 +31,8 @@ export default function Navbar() {
                 <Image
                   src={LogoNav}
                   alt="Logo"
-                  width={300}
-                  height={150}
+                  width={260}
+                  height={120}
                   className="sm:block hidden"
                 />
               </Link>
