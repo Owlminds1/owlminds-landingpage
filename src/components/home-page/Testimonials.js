@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
-import "@/styles/globals.css";
+// import "@/styles/globals.css";
 
 import { Autoplay, Parallax, Pagination, Navigation } from "swiper/modules";
 import { testimonialData } from "@/constants/data";
