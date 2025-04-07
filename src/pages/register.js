@@ -205,7 +205,7 @@ export default function Home() {
         />
         <CustomNumberInput
           data={slotData}
-          label="Select Child's Grade"
+          label="Select time"
           name="selectSlot"
           control={control}
           error={errors.selectSlot?.message}
