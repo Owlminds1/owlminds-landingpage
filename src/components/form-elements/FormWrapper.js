@@ -62,7 +62,7 @@ export default function FormWrapper({
         </div>
 
         <div className="col-span-3 ml-[20px]">
-          <h2 className="sm:text-[44px] font-bold pb-4 hidden sm:block">
+          <h2 className="sm:text-[44px] font-bold pb-4 hidden sm:block text-white">
             {pointerTitle}
           </h2>
           {pointersData?.map((item, index) => (
@@ -82,7 +82,7 @@ export default function FormWrapper({
                   />
                 </svg>
               </div>
-              <div className="text-lg sm:text-2xl leading-6 sm:leading-8">
+              <div className="text-lg sm:text-2xl leading-6 sm:leading-8 text-white">
                 {item?.value}
               </div>
             </div>

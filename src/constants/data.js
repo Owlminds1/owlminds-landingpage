@@ -211,19 +211,19 @@ export const instructors = [
 export const whatOfferList = [
   {
     id: "0",
-    title: "Fundamentals",
+    title: "Fundamentals of OLQ’s",
     imageDesc:
       "Fundamentals Building lays the foundation for strong cognitive and leadership skills. It nurtures reasoning ability and emotional intelligence, helping children develop organizing skills and self-confidence in expression. ",
   },
   {
     id: "1",
-    title: "Practicing",
+    title: "Practicing of OLQ’s",
     imageDesc:
       "Leadership is about action. This module helps students apply leadership skills in real-life scenarios, focusing on teamwork, communication, and emotional intelligence through interactive exercises.",
   },
   {
     id: "2",
-    title: "Applying",
+    title: "Applying OLQ’s",
     imageDesc:
       "Students move from theory to practical leadership, engaging in problem-solving, decision-making, and resilience-building activities. They learn to lead effectively under pressure.",
   },
@@ -262,9 +262,9 @@ export const whatOfferList = [
 export const testimonialData = [
   {
     id: 1,
-    name: "Jane Smith",
+    name: "Mrs. Peterson",
     image: TestimonialImage,
-    desc: "Using OwlMinds has revolutionized how we manage tasks and collaborate as a team. Its intuitive design and powerful features have significantly boosted our productivity and efficiency.",
+    desc: "Using OwlMinds has revolutionized how my daughter Anna manages tasks and collaborate as a team. Its intuitive design and powerful features have significantly boosted her leadership and confidence.",
   },
   {
     id: 2,
@@ -284,78 +284,96 @@ export const pricingCardData = [
   {
     id: "1",
     type: "Basic",
+    classType: "8 classes",
+    ClassLeft: "Hurry 4 classes left!",
     active: false,
-    desc: "Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Curabitur",
-    correctPrice: "₹12000",
-    inCorrectPrice: "₹16000",
+    desc: "So in this plan class will cost ₹1500, per month.",
+    correctPrice: "₹11,999",
+    inCorrectPrice: "₹16,000",
     priceItems: [
       {
         id: "1",
-        title: "8 classes ",
+        title: "Basics of Officer Like Qualities",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "2",
+        title: "Dining Etiquettes",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
-      },
-      {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "3",
+        title: "Reflection on Learning",
       },
     ],
   },
   {
     id: "2",
     type: "Premium",
-    active: true,
-    desc: "Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Curabitur",
-    correctPrice: "₹12000",
-    inCorrectPrice: "₹16000",
+    classType: "32 classes",
+    ClassLeft: "Hurry 2 classes left!",
+    active: false,
+    desc: "So in this plan class will cost ₹1250, per month.",
+    correctPrice: "₹39,999",
+    inCorrectPrice: "₹48,000",
     priceItems: [
       {
         id: "1",
-        title: "32 classes ",
+        title: "15 Officer Like Qualities",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "2",
+        title: "International Student Connect",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "3",
+        title: "Practical Implementation",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "4",
+        title: "Capstone by Top Industry Professionals",
       },
     ],
   },
   {
     id: "1",
     type: "Standard",
-    active: false,
-    desc: "Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Curabitur",
-    correctPrice: "₹12000",
-    inCorrectPrice: "₹16000",
+    classType: "64 classes",
+    ClassLeft: "Hurry 3 classes left!",
+    active: true,
+    desc: "So in this plan class will cost ₹1000, per month.",
+    correctPrice: "₹63,999",
+    inCorrectPrice: "₹80,000",
     priceItems: [
       {
         id: "1",
-        title: "64 classes ",
+        title: "15 Officer Like Qualities",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "2",
+        title: "International Student Connect",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "3",
+        title: "Practical Implementation",
       },
       {
-        id: "1",
-        title: "Lorem ipsum ",
+        id: "4",
+        title: "Capstone by Top Industry Professionals",
+      },
+      {
+        id: "5",
+        title: "Digital Life Tech (AI & Metaverse)",
+      },
+      {
+        id: "6",
+        title: "Financial Literacy",
+      },
+      {
+        id: "7",
+        title: "Entrepreneurship",
+      },
+      {
+        id: "8",
+        title: "Entry to OwlMinds Fish Tank Event",
       },
     ],
   },

@@ -1,12 +1,32 @@
 import Image from "next/image";
 import HeroCreatorImage from "@/assets/images/Hero_Banner.png";
+import HeroCreatorImage1 from "@/assets/images/banner1.png";
+import HeroCreatorImage2 from "@/assets/images/banner2.png";
+import HeroCreatorImage3 from "@/assets/images/banner3.png";
+import HeroCreatorImage1Mob from "@/assets/images/banner1Mob.png";
+import HeroCreatorImage2Mob from "@/assets/images/banner2Mob.png";
+import HeroCreatorImage3Mob from "@/assets/images/banner3Mob.png";
 import HeroCreatorImageMob from "@/assets/images/Hero_Banner_mob.png";
 import HeroCalenderImage from "@/assets/images/calender_frame.png";
 import HeroCurriculumImage from "@/assets/images/medal.png";
 import AboutUsIcon from "@/assets/images/about_us_icon.png";
+import BannerText from "@/assets/images/bannerText.png"
 import Calender from "@/assets/images/Calendar-3.png";
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
+  const desktopImages = [HeroCreatorImage, HeroCreatorImage1, HeroCreatorImage2, HeroCreatorImage3]; // add more if needed
+  const mobileImages = [HeroCreatorImageMob, HeroCreatorImage1Mob, HeroCreatorImage2Mob, HeroCreatorImage3Mob];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % desktopImages.length);
+    }, 2000); // 2 seconds
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, [desktopImages.length]);
   return (
     <div className="max-w-3xl md:max-w-5xl lg:max-w-7xl mx-auto mb-16 sm:mb-44 px-4 sm:px-2 text-black">
       <div className="grid grid-col-1 sm:grid-cols-9 sm:grid-rows-9 gap-y-5 sm:gap-y-0 sm:gap-x-2 mb-20 sm:mb-16">
@@ -18,22 +38,23 @@ export default function HeroSection() {
               <br />
               FOR Life
               <div className="md:text-[32px] text-[20px] font-medium leading-[30px] mt-4 text-center md:text-left">
-                Help your child unlock their{" "}
+                {/* Help your child unlock their{" "}
                 <span className="hidden md:inline">
                   <br />
                 </span>
-                potential.
+                potential. */}
+                <Image width={300} height={150}  src={BannerText} alt="banner" />
               </div>
             </div>
             <Image
-              src={HeroCreatorImageMob}
+              src={mobileImages[currentIndex]}
               alt="Creator-Image"
               layout="responsive"
               objectFit="contain"
               className="sm:hidden "
             />
             <Image
-              src={HeroCreatorImage}
+              src={desktopImages[currentIndex]}
               alt="Creator-Image"
               objectFit="contain"
               className="hidden sm:block"
@@ -71,12 +92,13 @@ export default function HeroSection() {
           <div className="relative">
             <div className="absolute top-0 sm:top-2 left-4 px-2 py-4 sm:py-2 text-white md:text-[28px] text-[24px] font-bold bg-opacity-75 rounded z-10 md:leading-[40px] leading-[30px]">
               <span className="font-[500] md:font-[500]">
-                Develop <span className="font-[700]">Leadership</span>
+              Masterclass with  <span className="font-[700]">top CEOs & generals</span>
               </span>
+              —unlock your
               <div className="font-[700] md:font-[700]">
-                & Critical Thinking
+              child’s leadership potential.
               </div>
-              <div className="font-[500] md:font-[500]">Skills</div>
+              
               <a href="/" download>
                 <button className="bg-white text-black px-4 py-2 rounded-xl font-[400] text-xl mt-4 sm:mt-2 flex items-center gap-2 cursor-pointer">
                   <svg
@@ -128,10 +150,8 @@ export default function HeroSection() {
           </h2>
         </div>
         <p className="text-base sm:text-2xl max-w-2xl text-center sm:text-left">
-          Unlock your child’s potential with a curriculum built on 15
-          Officer-Like Qualities like{" "}
-          <b>reasoning, resilience, and decision-making</b>—through personalized
-          classes in leadership, entrepreneurship, and technology."
+        While others teach coding, math, and science, we train future leaders with <b>15 Officer-Like Qualities (OLQs)</b>—just like the <b>Army, Navy, and Air Force train their cadets</b>. Then, we equip them with Digital Tech (AI & Metaverse), Financial Literacy, and Entrepreneurship to create, innovate, and lead in a global cohort environment.
+        <br/>OwlMinds transforms your child into a <b>Creator for Life </b>, not just a consumer.
         </p>
       </div>
     </div>

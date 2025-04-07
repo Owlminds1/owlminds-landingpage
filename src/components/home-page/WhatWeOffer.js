@@ -240,10 +240,8 @@ export default function WhatWeOffer({ ribbon, backImg }) {
             ))}
           </div>
           <div
-            className={`relative col-span-1 sm:col-span-2 px-4 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${backImg ? 'h-[750px] sm:h-[600px] pb-92 sm:pb-[180px]' : 'pb-60 h-[600px]'}`}
-            style={{
-              background: backImg ? "linear-gradient(90deg, rgba(255, 127, 62, 0.2) 0%, rgba(127, 0, 255, 0.2) 95.18%); " : "#fff6e9",
-            }}
+            className={`relative col-span-1 sm:col-span-2 px-4 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${backImg ? 'h-[750px] sm:h-[600px] pb-92 sm:pb-[180px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]' : 'pb-60 h-[600px] bg-[#fff6e9]'}`}
+            
           >
             <Swiper
               ref={swiperRef}
@@ -261,7 +259,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                 clickable: false,
               }}
               autoplay={{
-                delay: 500,
+                delay: 3000,
                 disableOnInteraction: true,
               }}
               navigation={false}
