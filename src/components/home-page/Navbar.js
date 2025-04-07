@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="pt-5 pb-2">
-      <div className="mx-auto sm:mr-[24px] max-w-7xl px-2 sm:px-6 lg:pl-3 lg:pr-0">
+      <div className="mx-auto  max-w-7xl px-2 sm:px-6 lg:pl-3 lg:pr-0">
         <div className="relative flex h-16 items-center justify-between">
           {/* Logo and Links Section */}
           <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-between">
@@ -62,7 +62,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:ml-0 sm:block sm:my-auto">
               <Link href="/register">
-                <button className="bg-[#7F00FF] cursor-pointer flex items-center justify-center px-10 sm:px-28 py-4 rounded-3xl">
+                <button className="bg-[#7F00FF] cursor-pointer flex items-center justify-center px-10 sm:px-26 py-4 rounded-3xl">
                   <CalendarIcon width={12} height={16} />
                   <p className="text-white pl-2 pt-[2px] text-xl font-semibold">
                     Book a FREE Trial Class
