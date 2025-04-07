@@ -2,10 +2,8 @@ import Image from "next/image";
 import HeroCreatorImage from "@/assets/images/Hero_Banner.png";
 import HeroCreatorImage1 from "@/assets/images/banner1.png";
 import HeroCreatorImage2 from "@/assets/images/banner2.png";
-import HeroCreatorImage3 from "@/assets/images/banner3.png";
 import HeroCreatorImage1Mob from "@/assets/images/banner1Mob.png";
 import HeroCreatorImage2Mob from "@/assets/images/banner2Mob.png";
-import HeroCreatorImage3Mob from "@/assets/images/banner3Mob.png";
 import HeroCreatorImageMob from "@/assets/images/Hero_Banner_mob.png";
 import HeroCalenderImage from "@/assets/images/calender_frame.png";
 import HeroCurriculumImage from "@/assets/images/medal.png";
@@ -15,8 +13,8 @@ import Calender from "@/assets/images/Calendar-3.png";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const desktopImages = [HeroCreatorImage, HeroCreatorImage1, HeroCreatorImage2, HeroCreatorImage3]; // add more if needed
-  const mobileImages = [HeroCreatorImageMob, HeroCreatorImage1Mob, HeroCreatorImage2Mob, HeroCreatorImage3Mob];
+  const desktopImages = [HeroCreatorImage1, HeroCreatorImage, HeroCreatorImage2]; // add more if needed
+  const mobileImages = [HeroCreatorImage1Mob, HeroCreatorImageMob, HeroCreatorImage2Mob];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -37,13 +35,16 @@ export default function HeroSection() {
               CREATORS
               <br />
               FOR Life
-              <div className="md:text-[32px] text-[20px] font-medium leading-[30px] mt-4 text-center md:text-left">
-                {/* Help your child unlock their{" "}
+              <div className="md:text-[32px] text-[20px] sm:hidden font-medium leading-[30px] mt-4 text-center md:text-left">
+                Help your child unlock their{" "}
                 <span className="hidden md:inline">
                   <br />
                 </span>
-                potential. */}
-                <Image width={300} height={150}  src={BannerText} alt="banner" />
+                potential.
+                
+              </div>
+              <div className="md:text-[32px] text-[20px] font-medium leading-[30px] mt-4 text-center md:text-left">
+                <Image width={300} height={150} className="hidden sm:block"  src={BannerText} alt="banner" />
               </div>
             </div>
             <Image
