@@ -34,24 +34,29 @@ function NumberInput({ onChange, value, data }) {
   return (
     <div>
       <div className="grid grid-cols-3 gap-4">
-        {data.map((item) => (
+        {data?.map((item) => (
           <div
             key={item.id}
-            onClick={() => onChange(item.value)} // Set the value when clicked
+            onClick={() => onChange(item.id)} // Set the value when clicked
             className={`${
               item.value === value ? "bg-[#7f00ff]" : "bg-white"
             } p-2 text-center border-[2px] border-gray-200 py-2 px-2 sm:px-8 rounded-lg cursor-pointer`}
             style={{
-              backgroundColor: item.value === value ? "#7f00ff" : "white",
+              backgroundColor: item.id === value ? "#7f00ff" : "white",
             }}
           >
             <div>
-              <label className="text-black text-sm" style={{
-              color: item.value === value ? "white" : "black",
-            }}>{item.label}</label>
+              <label
+                className="text-black text-sm"
+                style={{
+                  color: item.id === value ? "white" : "black",
+                }}
+              >
+                {item.label}
+              </label>
               <div
                 className={`${
-                  item.value === value ? "text-white" : "text-black"
+                  item.id === value ? "text-white" : "text-black"
                 } text-md font-sans`}
               >
                 {item.value}
