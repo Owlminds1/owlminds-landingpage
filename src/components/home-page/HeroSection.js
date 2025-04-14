@@ -12,6 +12,8 @@ import HeroCurriculumImage from "@/assets/images/medal.png";
 import AboutUsIcon from "@/assets/images/about_us_icon.png";
 import BannerText from "@/assets/images/bannerText.png"
 import Calender from "@/assets/images/Calendar-3.png";
+import Link from "next/link";
+import CalendarIcon from "@/assets/icons/CalenderIcon";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
@@ -65,6 +67,17 @@ export default function HeroSection() {
           </div>
         </div>
 
+        <div className="sm:ml-0 sm:hidden block sm:my-auto mx-auto">
+              <Link href="/register">
+                <button className="bg-[#7F00FF] cursor-pointer flex items-center justify-center px-17 sm:px-27 py-4 rounded-3xl flashybtn">
+                  <CalendarIcon width={12} height={16} />
+                  <p className="text-white pl-2 pt-[2px] text-xl font-semibold">
+                    Book a FREE Trial Class
+                  </p>
+                </button>
+              </Link>
+        </div>
+
         {/* Calender */}
         <div className="col-span-1 sm:col-span-3 sm:row-span-6 sm:col-start-7">
           <div className="relative">
@@ -93,9 +106,9 @@ export default function HeroSection() {
         {/* Badge UI */}
         <div className="col-span-1 sm:col-span-3 sm:row-span-3 sm:col-start-7 sm:row-start-7">
           <div className="relative">
-            <div className="absolute top-0 sm:top-2 left-4 px-2 py-4 sm:py-2 text-white md:text-[28px] text-[24px] font-bold bg-opacity-75 rounded z-10 md:leading-[40px] leading-[30px]">
+            <div className="absolute top-0 sm:top-2 left-4 px-2 py-4 sm:py-2 text-white md:text-[28px] text-[24px] font-bold bg-opacity-75 rounded z-10 md:leading-[35px] leading-[25px]">
               <span className="font-[500] md:font-[500]">
-              Masterclass with <b>Top</b> <br/> <span className="font-[700]"> CEOs & generals</span>
+              Masterclass with <b>Top</b> <br/> <span className="font-[700]"> CEOs & Generals</span>
               </span>
               —unlock 
               <div className="font-[700] md:font-[700]">
@@ -103,7 +116,7 @@ export default function HeroSection() {
               </div>
               
               <a href="/" >
-                <button className="bg-white text-black px-4 py-2 rounded-xl font-[400] text-xl mt-0 sm:mt-0 flex items-center gap-2 cursor-pointer">
+                <button className="bg-white text-black px-4 py-2 rounded-xl font-[400] text-xl mt-2 sm:mt-2 flex items-center gap-2 cursor-pointer">
                   <svg
                     width="24"
                     height="24"
@@ -153,7 +166,7 @@ export default function HeroSection() {
           </h2>
         </div>
         <p className="text-base sm:text-2xl max-w-2xl text-center sm:text-left">
-        At OwlMinds, we don’t just prepare kids for tests—we prepare them for life. We nurture 15 <b>Officer-Like Qualities (OLQs) </b> inspired by elite <b> Armed Forces training </b>, and power that foundation with future-ready tools like AI, Metaverse, Financial Literacy, and Entrepreneurship.<br/> <b>“The result?”</b> Bold young leaders who create, lead, and thrive. OwlMinds turns your child into a <b>Creator for Life</b>—not just a consumer!
+        At OwlMinds, we don’t just prepare kids for tests—we prepare them for life. We nurture 15 <b>Officer-Like Qualities (OLQs) </b> inspired by elite <b> Armed Forces training </b>, and power that foundation with future-ready tools like AI, Metaverse, Financial Literacy, and Entrepreneurship.<br/>&nbsp;  &nbsp;<b>“The result?”</b> Bold young leaders who create, lead, and thrive. OwlMinds turns your child into a <b>Creator for Life</b>—not just a consumer!
         </p>
       </div>
     </div>

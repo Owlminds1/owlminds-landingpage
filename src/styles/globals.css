@@ -82,9 +82,11 @@ body {
 
 .flashybtn
 {
+    position: relative;
     background-image: rgba(30, 0, 216, 1)!important;
     animation: gradient 1.5s ease infinite!important;
     z-index: 9999;
+    overflow: hidden !important;
     }
 .flashybtn:before {
     content: "";

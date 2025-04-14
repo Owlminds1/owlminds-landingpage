@@ -44,7 +44,7 @@ export default function Navbar() {
                   className={`rounded-md px-3 py-1 text-lg relative ${
                     router.pathname === "/curriculum"
                       ? "font-bold text-black"
-                      : "text-black hover:text-purple-700"
+                      : "font-semibold text-black hover:text-purple-700"
                   }`}
                 >
                   Curriculum+Pricing
