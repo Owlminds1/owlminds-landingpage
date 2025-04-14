@@ -72,3 +72,52 @@ body {
 .testimonial-swiper .swiper-wrapper .swiper-slide {
   padding: 0 !important;
 }
+
+
+#loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
+}
+
+.box {
+  width: 4px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50px;
+  animation: loader 1s linear infinite;
+}
+
+#loader1 {
+  animation-delay: 0.1s;
+}
+
+#loader2 {
+  animation-delay: 0.2s;
+}
+
+#loader3 {
+  animation-delay: 0.3s;
+}
+
+#loader4 {
+  animation-delay: 0.4s;
+}
+
+#loader5 {
+  animation-delay: 0.5s;
+}
+
+@keyframes loader {
+
+  0%,
+  100% {
+    height: 20px;
+  }
+
+  50% {
+    height: 8px;
+  }
+}
