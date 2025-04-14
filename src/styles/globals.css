@@ -117,6 +117,36 @@ body {
 #loader5 {
   animation-delay: 0.5s;
 }
+.flashybtn
+{
+    position: relative;
+    background-image: rgba(30, 0, 216, 1)!important;
+    animation: gradient 1.5s ease infinite!important;
+    z-index: 9999;
+    overflow: hidden !important;
+    }
+.flashybtn:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background: rgb(255,255,255);
+    width: 30px;
+    height: 2em;
+    left: 0;
+    bottom: 0;
+    filter: blur(1.5em);
+    animation: 2s glaze infinite;
+}
+@keyframes glaze{
+    from{
+        transform: translateX(0) skewX(-15deg);
+        opacity:1;
+        }
+    to {
+        transform: translateX(100vw) skewX(-15deg);
+        opacity:1;
+       }
+}
 
 @keyframes loader {
 

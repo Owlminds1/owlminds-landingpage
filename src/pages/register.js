@@ -10,7 +10,7 @@ import CustomInput from "@/components/common/CustomInput";
 import CustomButton from "@/components/common/CustomButton";
 import CustomNumberInput from "@/components/common/CustomNumberInput";
 import { childGradeData, pointersChildGradeData } from "@/constants/data";
-import { LogoNav } from "@/assets/icons/Logo";
+import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
 
 // Month mapping for converting digits to strings
 const monthMap = {
