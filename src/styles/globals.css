@@ -57,7 +57,8 @@ body {
 /* Mobile specific styles */
 @media (max-width: 640px) {
   .parallax-bg {
-    height: 100%; /* Adjust height for mobile */
+    height: 100%;
+    /* Adjust height for mobile */
   }
 }
 
@@ -80,32 +81,51 @@ body {
   padding: 0 !important;
 }
 
-.flashybtn
-{
-    background-image: rgba(30, 0, 216, 1)!important;
-    animation: gradient 1.5s ease infinite!important;
-    z-index: 9999;
-    }
-.flashybtn:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    background: rgb(255,255,255);
-    width: 30px;
-    height: 2em;
-    left: 0;
-    bottom: 0;
-    filter: blur(1.5em);
-    animation: 2s glaze infinite;
-}
-@keyframes glaze{
-    from{
-        transform: translateX(0) skewX(-15deg);
-        opacity:1;
-        }
-    to {
-        transform: translateX(100vw) skewX(-15deg);
-        opacity:1;
-       }
+
+#loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
 }
 
+.box {
+  width: 4px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50px;
+  animation: loader 1s linear infinite;
+}
+
+#loader1 {
+  animation-delay: 0.1s;
+}
+
+#loader2 {
+  animation-delay: 0.2s;
+}
+
+#loader3 {
+  animation-delay: 0.3s;
+}
+
+#loader4 {
+  animation-delay: 0.4s;
+}
+
+#loader5 {
+  animation-delay: 0.5s;
+}
+
+@keyframes loader {
+
+  0%,
+  100% {
+    height: 20px;
+  }
+
+  50% {
+    height: 8px;
+  }
+}
