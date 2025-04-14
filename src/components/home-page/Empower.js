@@ -10,6 +10,21 @@ export default function Empower() {
     setSelectedDate(date);
   };
 
+  // Function to format date as "Day, DD Month"
+  const formatDate = (date) => {
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    return date.toLocaleDateString('en-US', options);
+  };
+
+  // Generate dates starting from tomorrow
+  const today = new Date();
+  const dates = [];
+  for (let i = 1; i <= 6; i++) {
+    const nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + i);
+    dates.push(nextDate);
+  }
+
   return (
     <>
       <div className="relative w-full sm:h-[1080px] h-[700px] bg-cover bg-center sm:bg-[url(../assets/images/empower.png)] bg-[url(../assets/images/empowerMob.png)]">
@@ -105,27 +120,26 @@ export default function Empower() {
                 Select date
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                {[
-                  "Tomorrow",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                ].map((day, index) => (
-                  <button
-                    key={index}
-                    className={`border rounded-lg p-2 text-black ${
-                      selectedDate === day ? "bg-purple-200" : ""
-                    }`}
-                    style={{ borderColor: "rgba(217, 217, 217, 1)" }}
-                    onClick={() => handleButtonClick(day)}
-                  >
-                    {day}
-                    <br />
-                    {index + 12} March
-                  </button>
-                ))}
+                {dates.map((date, index) => {
+                    const dayLabel = index === 0 ? "Tomorrow" : date.toLocaleDateString('en-US', { weekday: 'long' });
+                    const dateString = date.toLocaleDateString('en-US', { day: 'numeric', month: 'long' });
+                    const fullDateString = formatDate(date); // Use this for comparison in selectedDate
+
+                    return (
+                        <button
+                            key={index}
+                            className={`border rounded-lg p-2 text-black ${
+                            selectedDate === fullDateString ? "bg-purple-200" : ""
+                            }`}
+                            style={{ borderColor: "rgba(217, 217, 217, 1)" }}
+                            onClick={() => handleButtonClick(fullDateString)} // Store the full formatted date string
+                        >
+                            {dayLabel}
+                            <br />
+                            {dateString}
+                        </button>
+                    );
+                 })}
               </div>
               <a
                 href="/register"
