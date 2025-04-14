@@ -446,14 +446,14 @@ export default function Home() {
           control={control}
           error={errors.parentEmail?.message}
         />
-        <CustomInput
+        {/* <CustomInput
           name="phoneNumber"
           label=""
           placeholder="8787878787"
           control={control}
           error={errors.phoneNumber?.message}
           inputType="mobile"
-        />
+        /> */}
 
         <CustomButton
           label="Book my free class!"
@@ -487,7 +487,29 @@ export default function Home() {
           : "bg-[url(../assets/images/form-bg-mobile-3.jpeg)] sm:bg-[url(../assets/images/form-bg-3.jpeg)]"
       } aspect-[395/1600] sm:aspect-[16/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
     >
-      <div className="absolute sm:mx-24">
+      {/* Logo in top left corner */}
+      <div className="absolute top-4 left-4 z-50">
+        <Link href="/">
+          <Image
+            src={LogoNav}
+            alt="Logo"
+            width={200}
+            height={140}
+            priority
+            className="w-auto h-auto sm:hidden !w-[180px]"
+          />
+          <Image
+            src={LogoNav}
+            alt="Logo"
+            width={270}
+            height={150}
+            priority
+            className="w-auto h-auto ml-5 sm:block hidden !w-[200px]"
+          />
+        </Link>
+      </div>
+
+      <div className="absolute sm:mx-24 sm:mt-20 mt-20">
         <div>{currentForm()}</div>
       </div>
 
@@ -517,12 +539,14 @@ export default function Home() {
                 Your details have been successfully submitted. We'll contact you
                 shortly.
               </p>
-              <button
-                onClick={() => setShowModal(false)}
-                className="w-full bg-violet-600 cursor-pointer py-2 rounded-lg flex justify-center items-center gap-2"
-              >
-                Okay
-              </button>
+              <Link href="/">
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="w-full bg-violet-600 cursor-pointer py-2 rounded-lg flex justify-center items-center gap-2"
+                >
+                  Okay
+                </button>
+              </Link>
             </div>
           </div>
         </div>

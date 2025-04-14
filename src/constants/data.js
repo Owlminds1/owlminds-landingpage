@@ -4,7 +4,9 @@ import TeamBG3 from "@/assets/images/team_card3.png";
 
 // Testimonials Images
 
-import TestimonialImage from "@/assets/images/testimonial.png";
+import TestimonialImage1 from "@/assets/images/testimonial1.png";
+import TestimonialImage2 from "@/assets/images/testimonial2.png";
+import TestimonialImage3 from "@/assets/images/testimonial3.png";
 
 export const childGradeData = [
   {
@@ -263,20 +265,20 @@ export const testimonialData = [
   {
     id: 1,
     name: "Mrs. Peterson",
-    image: TestimonialImage,
-    desc: "Using OwlMinds has revolutionized how my daughter Anna manages tasks and collaborate as a team. Its intuitive design and powerful features have significantly boosted her leadership and confidence.",
+    image: TestimonialImage1,
+    desc: "OwlMinds has helped my son become more focused and responsible. He now plans his day, sets goals, and follows through—traits I once thought were years away!",
   },
   {
     id: 2,
     name: "Jane Smith",
-    image: TestimonialImage,
-    desc: "Using OwlMinds has revolutionized how we manage tasks and collaborate as a team. Its intuitive design and powerful features have significantly boosted our productivity and efficiency.",
+    image: TestimonialImage2,
+    desc: "OwlMinds does more than teach. It shapes character. My daughter is more decisive, disciplined, and driven—qualities that will help her for life.",
   },
   {
     id: 3,
     name: "John Doe",
-    image: TestimonialImage,
-    desc: "Using OwlMinds has revolutionized how we manage tasks and collaborate as a team. Its intuitive design and powerful features have significantly boosted our productivity and efficiency.",
+    image: TestimonialImage3,
+    desc: "Finally, a platform that understands how kids learn best! OwlMinds mixes fun with structure, and it’s made a real difference in my daughter’s learning journey.",
   },
 ];
 
@@ -307,7 +309,7 @@ export const pricingCardData = [
   },
   {
     id: "2",
-    type: "Premium",
+    type: "Standard",
     classType: "32 classes",
     ClassLeft: "Hurry 2 classes left!",
     active: false,
@@ -334,8 +336,8 @@ export const pricingCardData = [
     ],
   },
   {
-    id: "1",
-    type: "Standard",
+    id: "3",
+    type: "Premium",
     classType: "64 classes",
     ClassLeft: "Hurry 3 classes left!",
     active: true,
