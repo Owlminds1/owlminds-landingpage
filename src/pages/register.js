@@ -6,12 +6,16 @@ import FormWrapper from "@/components/form-elements/FormWrapper";
 import CustomInput from "@/components/common/CustomInput";
 import CustomButton from "@/components/common/CustomButton";
 import CustomNumberInput from "@/components/common/CustomNumberInput";
+import LogoNav  from "@/assets/images/owlmindsLogoNew1.png";
+import Image from "next/image";
+import Link from "next/link";
 import {
   childGradeData,
   pointersChildGradeData,
   selectDateData,
   slotData,
 } from "@/constants/data";
+import { isValidPhoneNumber } from 'react-phone-number-input';
 
 // import Image from "../assets/images/"
 
@@ -19,7 +23,11 @@ const validationSchemaStep3 = Yup.object({
   childName: Yup.string().required("Child Name is required"),
   parentName: Yup.string().required("Parent Name is required"),
   parentEmail: Yup.string().required("Parent Email is required"),
-  phoneNumber: Yup.string().required("Parent Phone Number is required"),
+  // phoneNumber: Yup.string()
+  //   .required("Parent Phone Number is required")
+  //   .test("isValidPhone", "Please enter a valid phone number", (value) => {
+  //     return !value || isValidPhoneNumber(value);
+  //   }),
 });
 
 const validationSchemaStep2 = Yup.object({
@@ -28,7 +36,11 @@ const validationSchemaStep2 = Yup.object({
 });
 
 const validationSchemaStep1 = Yup.object({
-  whatsAppNumber: Yup.string().required("phoneNumber is required"),
+  whatsAppNumber: Yup.string()
+    .required("phoneNumber is required")
+    .test("isValidPhone", "Please enter a valid phone number", (value) => {
+      return !value || isValidPhoneNumber(value);
+    }),
   selectGrade: Yup.string().required("Grade is required"),
 });
 
@@ -56,8 +68,17 @@ export default function Home() {
   });
 
   const handleNextStep = async () => {
+    // Trigger validation for all fields in the current step
     const isValid = await trigger();
-    if (isValid) {
+    
+    // Check if there are any errors in the current step
+    const hasErrors = Object.keys(errors).length > 0;
+    
+    // Log validation status for debugging
+    console.log("Form validation:", { isValid, hasErrors, errors });
+    
+    // Only proceed if validation passes and there are no errors
+    if (isValid && !hasErrors) {
       // Reset form errors when moving to next step
       reset({}, { keepValues: true });
       setStep(step + 1);
@@ -278,14 +299,14 @@ export default function Home() {
           control={control}
           error={errors.parentEmail?.message}
         />
-        <CustomInput
+        {/* <CustomInput
           name="phoneNumber"
           label=""
           placeholder="8787878787"
           control={control}
           error={errors.phoneNumber?.message}
           inputType="mobile"
-        />
+        /> */}
 
         <CustomButton label="Book my free class!" icon={false} />
       </form>
@@ -314,7 +335,29 @@ export default function Home() {
           : "bg-[url(../assets/images/form-bg-mobile-3.jpeg)] sm:bg-[url(../assets/images/form-bg-3.jpeg)]"
       } aspect-[395/1600] sm:aspect-[16/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
     >
-      <div className="absolute sm:mx-24">
+      {/* Logo in top left corner */}
+      <div className="absolute top-4 left-4 z-50">
+        <Link href="/">
+            <Image
+                  src={LogoNav}
+                  alt="Logo"
+                  width={200}
+                  height={140}
+                  priority
+                  className="w-auto h-auto sm:hidden !w-[180px]"
+            />
+            <Image
+                  src={LogoNav}
+                  alt="Logo"
+                  width={270}
+                  height={150}
+                  priority
+                  className="w-auto h-auto ml-5 sm:block hidden !w-[200px]"
+            />
+        </Link>
+      </div>
+      
+      <div className="absolute sm:mx-24 sm:mt-20 mt-20">
         <div>{currentForm()}</div>
       </div>
 
@@ -345,6 +388,7 @@ export default function Home() {
                 Your details have been successfully submitted. We'll contact you
                 shortly.
               </p>
+              <Link href="/">
               <button
                 onClick={() => setShowModal(false)}
                 // className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
@@ -352,6 +396,7 @@ export default function Home() {
               >
                 Okay
               </button>
+              </Link>
             </div>
           </div>
         </div>

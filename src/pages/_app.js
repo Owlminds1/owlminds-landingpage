@@ -1,12 +1,13 @@
-//import "@/styles/globals.css";
+import "@/styles/globals.css";
 import "react-phone-number-input/style.css";
 import { Baloo_2 } from "next/font/google";
 import Script from "next/script"; // Import Next.js Script component
-import "@/styles/globals.css";
 
 const baloo2 = Baloo_2({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export default function App({ Component, pageProps }) {

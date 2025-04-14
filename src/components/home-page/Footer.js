@@ -12,7 +12,7 @@ export default function Footer() {
   // Try multiple approaches to get the image
 
   return (
-    <div className="w-full relative pt-8 pb-4 sm:pt-0 sm:pb-0 bg-[rgba(127,0,255,1)]">
+    <div className="w-full relative pt-12 pb-4 sm:pt-0 sm:pb-0 bg-[rgba(127,0,255,1)]">
       <div className="bg-white mx-7.5 h-auto md:h-[264px] rounded-[30px] relative sm:top-15 z-[100] px-8 py-4 sm:px-4 sm:py-4 flex flex-col md:flex-row items-center justify-between">
         {/* Logo - centered on mobile, left on desktop */}
         <div className="flex items-start sm:items-center sm:justify-center w-full md:w-auto mb-6 sm:ml-4 md:mb-0">
@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Second Column */}
           <div className="text-gray-700 font-medium flex flex-col gap-4 items-start md:items-start">
             <a href="/blog" className="hover:text-gray-600">
-              Blog
+              Blogs
             </a>
             <a href="/terms" className="hover:text-gray-600">
               Terms & Conditions
@@ -52,35 +52,35 @@ export default function Footer() {
             <h3 className="text-gray-700 font-medium">Find us here</h3>
             <div className="flex gap-4 justify-center md:justify-start">
             <a
-                href="https://instagram.com"
+                href="https://www.youtube.com/@owlmindsofficial"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <YoutubeIcon />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.x.com/OwlMindsPvtLtd"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <TwitterIcon />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.linkedin.com/company/owlminds/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedInIcon />
               </a>
               <a
-                href="https://instagram.com"
+                href=" https://www.instagram.com/owlmindsofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <InstagramIcon />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/OwlMinds/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

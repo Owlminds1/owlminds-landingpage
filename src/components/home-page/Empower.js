@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import LogoNav  from "@/assets/images/owlmindsLogoNew1.png";
+import Image from "next/image";
+import ForwardArrowIcon from "@/assets/icons/ForwardArrowIcon";
 
 export default function Empower() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -9,15 +12,45 @@ export default function Empower() {
 
   return (
     <>
-      <div className="w-full sm:h-[700px] h-[600px] bg-cover bg-center flex items-center justify-center sm:bg-[url(../assets/images/empower2.png)] bg-[url(../assets/images/empowerMob.png)]">
-        <div className="text-center text-black max-w-3xl px-4">
-          <p className="text-4xl sm:text-[54px] font-[500] pb-4 sm:pb-0 leading-12 sm:leading-[61px] text-white">
-            From Ideas to Standing Ovations!
-          </p>
-          <p className="text-xl sm:text-[24px] leading-[30px] text-white">
-          We prepare kids to pitch like pros—equipping them with the confidence, creativity, and strategy to raise investor funding, deliver a compelling investor pitch, and think like entrepreneurs!
-          </p>
+      <div className="relative w-full sm:h-[1080px] h-[700px] bg-cover bg-center sm:bg-[url(../assets/images/empower.png)] bg-[url(../assets/images/empowerMob.png)]">
+        {/* Logo positioned top-left */}
+        <Image
+          src={LogoNav}
+          alt="Logo"
+          width={200}
+          height={80}
+          className="absolute top-4 hidden sm:block left-4 z-10 !w-[200px]"
+        />
+        {/* Centered Text Container - Hidden on mobile, shown sm and up */}
+        <div className="hidden sm:flex items-center justify-center h-full">
+          <div className="text-center text-black max-w-3xl px-4">
+            <p className="text-4xl sm:text-[54px] font-[500] pb-4 sm:pb-0 leading-12 sm:leading-[61px] text-white">
+              From Ideas to Standing Ovations!
+            </p>
+            <p className="text-xl sm:text-[24px] leading-[30px] text-white">
+            We prepare kids to pitch like pros—equipping them with the confidence, creativity, and strategy to raise investor funding, deliver a compelling investor pitch, and think like entrepreneurs!
+            </p>
+          </div>
         </div>
+      </div>
+      {/* Text Container for Mobile - Shown on mobile, hidden sm and up */}
+      <div className="flex justify-center py-10 px-4 sm:hidden">
+        <div className="text-center max-w-3xl">
+            <p className="text-4xl font-[500] pb-4 leading-12 text-black">
+              From Ideas to Standing Ovations!
+            </p>
+            <p className="text-xl leading-[30px] text-black">
+            We prepare kids to pitch like pros—equipping them with the confidence, creativity, and strategy to raise investor funding, deliver a compelling investor pitch, and think like entrepreneurs!
+            </p>
+            <a
+                href="/register"
+                className="bg-[#7F00FF] text-white text-[16px] font-[700] leading-[24px] w-[80%] py-3 rounded-lg mt-4 text-center block mx-auto"
+              >
+                <span className="flex items-center justify-center">
+                  Book a FREE Trial Class &nbsp;<ForwardArrowIcon color={"#fff"} height={14} width={24} className="pl-2" />
+                </span>
+              </a>
+          </div>
       </div>
       <div
         className="w-full h-[700px] md:h-[459px] relative mb-24"
@@ -52,7 +85,7 @@ export default function Empower() {
         {/* Text content positioned on the left side */}
         <div className="relative z-10 flex flex-col md:flex-row h-full">
           <div className="w-full md:w-1/2 flex items-center md:pl-16">
-            <div className="text-white text-center md:text-left">
+            <div className="text-white text-center md:text-left p-4">
               <h2 className="text-[36px] md:text-[54px] font-[500] leading-[40px] md:leading-[61px] mb-4 mt-10">
                 Ready to Empower Your Child?
               </h2>
@@ -96,7 +129,7 @@ export default function Empower() {
               </div>
               <a
                 href="/register"
-                className="bg-[#7F00FF] text-white text-[16px] font-[700] leading-[24px] w-full py-2 rounded-lg mt-4 text-center block"
+                className="bg-[#7F00FF] text-white text-[16px] font-[700] leading-[24px] w-full py-2 rounded-lg mt-4 text-center block mx-auto"
               >
                 Book a Free Class!
               </a>

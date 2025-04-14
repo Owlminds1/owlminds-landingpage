@@ -29,7 +29,7 @@ export default function FormWrapper({
           {children}
 
           <p
-            className={`text-black text-center font-medium text-sm pt-6 ${
+            className={`text-black text-center font-medium text-sm pt-10 ${
               note ? "opacity-100" : "opacity-0"
             }`}
           >

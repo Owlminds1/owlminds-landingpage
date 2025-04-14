@@ -12,18 +12,26 @@ export default function PricingCard() {
           Smart plans for every need
         </p>
         <h2 className="text-4xl sm:text-5xl font-medium text-center sm:text-left">
-          Owl Minds Pricing
+          OwlMinds Pricing
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0 sm:gap-x-8">
-        {pricingCardData.map((priceCard) => (
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0">
+        {pricingCardData.map((priceCard, index) => (
           <div
             key={priceCard.id}
             className={`col-span-1 ${
-              priceCard.active
-                ? "sm:transform sm:scale-105"
-                : "sm:transform sm:scale-95"
-            }  `}
+              priceCard.id === "3"
+                ? "sm:transform sm:scale-110"
+                :
+              priceCard.id === "1" ?
+              "sm:transform sm:scale-80"
+              :
+              priceCard.id === "2" ?
+                 "sm:transform sm:scale-90"
+                 : ""
+            }  
+            ${index === 0 ? 'sm:mr-4' : ''} 
+            ${index === 2 ? 'sm:ml-12' : ''}`}
           >
             <div className="relative">
               <Image
@@ -44,7 +52,7 @@ export default function PricingCard() {
                 {priceCard.type}
                  <span className="font-normal sm:text-lg  text-sm ml-2">{priceCard.classType}</span>
                  <span className="font-normal-700 text-sm text-[#F04438] bg-white float-right sm:p-2 p-1 rounded-[30px] mt-1">{priceCard.ClassLeft}</span>
-                <div className="flex items-end mt-5">
+                <div className={`flex items-end mt-5 ${priceCard.active ? "" : "sm:py-6 py-1"}`}>
                   <p
                     className={`text-xl font-[400] mr-4 pb-1 line-through ${
                       priceCard.active ? "text-white" : "text-[#242424]"
@@ -70,7 +78,7 @@ export default function PricingCard() {
                   {priceCard.desc}
                 </div>
                 
-                <div className="flex flex-col items-start gap-2 mt-[3rem]">
+                <div className={`flex flex-col items-start ${priceCard.active ? "gap-2 mt-[2rem]" : "gap-6 mt-[3rem]"} `}>
                   {priceCard.priceItems.map((item) => (
                     <div key={item.id} className="flex items-center gap-x-4">
                       {!priceCard.active ?<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,10 +118,11 @@ export default function PricingCard() {
                       <span
                         className={`${
                           priceCard.active ? "text-white" : "text-black"
-                        } text-sm`}
+                        } sm:text-xl text-lg font-[500]`}
                       >
                         {item.title}
                       </span>
+                      <br/>
                     </div>
                   ))}
                 </div>
@@ -124,7 +133,7 @@ export default function PricingCard() {
                   </button>
                 </a> */}
               </div>
-              <div className="absolute w-full bottom-20 px-6">
+              <div className="absolute w-full bottom-10 px-6">
                 <div className="flex justify-center items-center">
                   <button
                     className={`w-full font-semibold rounded-lg px-6 py-3 ${
@@ -133,7 +142,7 @@ export default function PricingCard() {
                         : "bg-purple-700 text-white"
                     }`}
                   >
-                    Join Now!!
+                    Enroll Now!!
                   </button>
                 </div>
               </div>
@@ -142,7 +151,7 @@ export default function PricingCard() {
         ))}
       </div>
     </div>
-    <div className="text-center">
+    <div className="text-center p-4">
         <p className="font-bold text-purple-700 text-[24px]">100% Risk-Free – Unused Classes? Money-Back Guarantee!</p>
         <p className="text-black text-[15px]">We believe in delivering value. If your child has unused classes, we’ll refund the amount for those sessions—no questions asked!</p>
     </div>
