@@ -26,7 +26,7 @@ export default function FutureSuccess() {
       </div>
       <div className="flex justify-center">
         <div className="mx-auto max-w-3xl md:max-w-5xl lg:max-w-7xl absolute top-4 sm:top-30 px-8 sm:px-0">
-          <h1 className="text-5xl text-center sm:text-left sm:text-7xl font-semibold w-full sm:w-1/2 text-black mb-6">
+          <h1 className="text-5xl text-center sm:text-left sm:text-7xl font-semibold w-full sm:w-1/2 text-black mb-6 mt-6">
             Building Blocks of Future Success
           </h1>
           <p className="text-black text-center text-lg sm:text-xl sm:text-left w-full sm:w-1/2">
@@ -37,9 +37,9 @@ export default function FutureSuccess() {
             future.
           </p>
 
-          <div className="my-4 sm:my-8">
+          <div className="my-2 sm:my-8">
             <a href="/register" className="block">
-              <button className="bg-[#7f00ff] text-white flex items-center mx-auto sm:mx-0 px-8 py-3 rounded-xl text-base sm:text-xl cursor-pointer">
+              <button className="bg-[#7f00ff] text-white flex items-center mx-auto sm:mx-0 px-8 py-3 rounded-xl text-base sm:text-xl cursor-pointer flashybtn">
                 <p className="pr-2">Book a FREE Trial Class</p>
                 <ForwardArrowIcon color={"#fff"} height={14} width={24} />
               </button>

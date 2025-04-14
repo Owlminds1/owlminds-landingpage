@@ -19,8 +19,10 @@ import weOfferImage2 from "@/assets/images/crousel3.png";
 import weOfferImage3 from "@/assets/images/crousel4.png";
 import weOfferImage4 from "@/assets/images/crousel5.png";
 import weOfferImage5 from "@/assets/images/crousel6.png";
+import weOfferImage5Mob from "@/assets/images/crousel6Mob.png";
 import weOfferImage6 from "@/assets/images/crousel7.png";
 import weOfferImage7 from "@/assets/images/crousel8.png";
+import weOfferImage7Mob from "@/assets/images/crousel8Mob.png";
 import RibbonImage from "@/assets/images/ribbon_clip.png";
 import RibbonImage1 from "@/assets/images/ribbon_clip_left_desktop.png";
 import RibbonImage2 from "@/assets/images/ribbon_clip_right_desktop.png";
@@ -29,7 +31,6 @@ import { whatOfferList, courseStructure } from "@/constants/data";
 import ForwardArrowIcon, { ChevronIcon } from "@/assets/icons/ForwardArrowIcon";
 
 export default function WhatWeOffer({ ribbon, backImg }) {
-  const [backgroundImage, setBackgroundImage] = useState(weOfferImage);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isComponentInView, setIsComponentInView] = useState(false);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -40,15 +41,17 @@ export default function WhatWeOffer({ ribbon, backImg }) {
   let slideTimeout = null;
 
   const imageMapping = {
-    0: weOfferImage,
-    1: weOfferImage1,
-    2: weOfferImage2,
-    3: weOfferImage3,
-    4: weOfferImage4,
-    5: weOfferImage5,
-    6: weOfferImage6,
-    7: weOfferImage7,
+    0: { mobile: weOfferImage, desktop: weOfferImage },
+    1: { mobile: weOfferImage1, desktop: weOfferImage1 },
+    2: { mobile: weOfferImage2, desktop: weOfferImage2 },
+    3: { mobile: weOfferImage3, desktop: weOfferImage3 },
+    4: { mobile: weOfferImage4, desktop: weOfferImage4 },
+    5: { mobile: weOfferImage5Mob, desktop: weOfferImage5Mob },
+    6: { mobile: weOfferImage6, desktop: weOfferImage6 },
+    7: { mobile: weOfferImage7Mob, desktop: weOfferImage7 },
   };
+  const defaultImages = { mobile: weOfferImage, desktop: weOfferImage };
+  const currentImages = imageMapping[activeIndex] || defaultImages;
 
   useEffect(() => {
     // Only run this effect on desktop screens
@@ -158,7 +161,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
   const handleSlideChange = (swiper) => {
     const activeSlideIndex = swiper.activeIndex;
     setActiveIndex(activeSlideIndex);
-    setBackgroundImage(imageMapping[activeSlideIndex] || weOfferImage);
+    const currentImages = imageMapping[activeSlideIndex] || defaultImages;
 
     // Check if we've reached the last slide
     if (activeSlideIndex === whatOfferList.length - 1) {
@@ -210,7 +213,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
             {backImg ? "Our Curriculum" : "What We Offer"}
           </h2>
           <p className="text-black/70 text-lg">
-            8 modules, 8 classes endless growth!
+          8 Modules, 8 Classes each and Endless Growth
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-x-8 h-full">
@@ -224,7 +227,6 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                     // Only for desktop
                     swiperRef.current.swiper.slideTo(i);
                     setActiveIndex(i);
-                    setBackgroundImage(imageMapping[i] || weOfferImage);
                   }
                 }}
               >
@@ -240,14 +242,14 @@ export default function WhatWeOffer({ ribbon, backImg }) {
             ))}
           </div>
           <div
-            className={`relative col-span-1 sm:col-span-2 px-4 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${backImg ? 'h-[750px] sm:h-[600px] pb-92 sm:pb-[180px]' : 'pb-60 h-[600px]'}`}
-            style={{
-              background: backImg ? "linear-gradient(90deg, rgba(255, 127, 62, 0.2) 0%, rgba(127, 0, 255, 0.2) 95.18%); " : "#fff6e9",
-            }}
+            className={`relative col-span-1 sm:col-span-2 px-4 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${
+              backImg
+                ? "h-[750px] sm:h-[650px] pb-92 sm:pb-[180px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]"
+                : "pb-60 h-[600px] bg-[#fff6e9]"
+            }`}
           >
             <Swiper
               ref={swiperRef}
-              // onSwiper={handleSwiperInit}
               style={{
                 "--swiper-navigation-color": "#fff",
                 "--swiper-pagination-color": "#fff",
@@ -261,33 +263,48 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                 clickable: false,
               }}
               autoplay={{
-                delay: 500,
+                delay: 3000,
                 disableOnInteraction: true,
               }}
               navigation={false}
               modules={[Autoplay, Parallax, Pagination, Navigation]}
               className="mySwiper rounded-2xl"
-              onSlideChange={handleSlideChange} // Hook to handle slide change
+              onSlideChange={handleSlideChange}
             >
-              {/* Background Image with Vignette */}
               <div
                 slot="container-start"
-                className={`parallax-bg`}
-                style={{
-                  backgroundImage: `url(${backgroundImage.src})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  height: "600px",
-                }}
-                data-swiper-parallax="-23%"
+                className={`parallax-bg w-full block sm:hidden`}
               >
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 h-[600px]"></div>
+                <Image
+                  src={currentImages.mobile.src}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={`Slide ${activeIndex + 1} background mobile`}
+                />
+
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 h-[600px] sm:block hidden"></div>
+              </div>
+              <div
+                slot="container-start"
+                className={`parallax-bg w-full hidden sm:block`}
+              >
+                <Image
+                  src={currentImages.desktop.src}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={`Slide ${activeIndex + 1} background desktop`}
+                />
+
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-100 h-[600px] sm:block hidden"></div>
               </div>
 
-              {/* Slides */}
               {whatOfferList.map((slide, i) => (
                 <SwiperSlide key={i} className="relative">
-                  <div className={`absolute ${!backImg ? 'hidden sm:block' : 'hidden'} bottom-12 left-12 right-12 text-white`}>
+                  <div
+                    className={`absolute ${
+                      !backImg ? "hidden sm:block" : "hidden"
+                    } bottom-12 left-12 right-12 text-white`}
+                  >
                     <div
                       className="text-4xl font-medium pb-4"
                       data-swiper-parallax="-300"
@@ -304,38 +321,45 @@ export default function WhatWeOffer({ ribbon, backImg }) {
               ))}
             </Swiper>
 
-            {backImg ? (
-              courseStructure[activeIndex] && (
-                <div className="block sm:hidden absolute bottom-8 right-4 left-6 mx-6 text-left text-black">
-                  <p className="text-black font-semibold text-3xl mx-auto mt-5 ml-2" data-swiper-parallax="-300">
-                    {courseStructure[activeIndex].moduleTitle}
-                  </p>
-                  <div className="grid grid-cols-1 gap-2 mt-5 justify-items-center">
-                    {courseStructure[activeIndex].weeks.map((week, index) => (
-                      <div className="flex items-start w-full max-w-xs" key={index}>
-                        <span className="mr-2 text-black">•</span>
-                        <p className="text-black font-medium text-md">
-                          <b>Week {(activeIndex * 4) + index + 1}:</b> {week}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )
-            ) : (
-              whatOfferList[activeIndex] && (
-                <div className="block sm:hidden absolute bottom-8 right-4 left-4 mx-6 text-center text-black">
-                  <div className="text-2xl font-medium pb-2" data-swiper-parallax="-300">
-                    {whatOfferList[activeIndex].title}
-                  </div>
-                  <div className="" data-swiper-parallax="-100">
-                    <p className="text-base font-sans leading-6">
-                      {whatOfferList[activeIndex].imageDesc}
+            {backImg
+              ? courseStructure[activeIndex] && (
+                  <div className="block sm:hidden absolute bottom-8 right-4 left-6 mx-6 text-left text-black">
+                    <p
+                      className="text-black font-semibold text-3xl mx-auto mt-5 ml-2"
+                      data-swiper-parallax="-300"
+                    >
+                      {courseStructure[activeIndex].moduleTitle}
                     </p>
+                    <div className="grid grid-cols-1 gap-2 mt-5 justify-items-center">
+                      {courseStructure[activeIndex].weeks.map((week, index) => (
+                        <div
+                          className="flex items-start w-full max-w-xs"
+                          key={index}
+                        >
+                          <span className="mr-2 text-black">•</span>
+                          <p className="text-black font-medium text-md">
+                            <b>Week {activeIndex * 4 + index + 1}:</b> {week}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )
-            )}
+                )
+              : whatOfferList[activeIndex] && (
+                  <div className="block sm:hidden absolute bottom-8 right-4 left-4 mx-6 mt-6 text-center text-black">
+                    <div
+                      className="text-2xl font-medium pb-2"
+                      data-swiper-parallax="-300"
+                    >
+                      {whatOfferList[activeIndex].title}
+                    </div>
+                    <div className="" data-swiper-parallax="-100">
+                      <p className="text-base font-sans leading-6 px-4">
+                        {whatOfferList[activeIndex].imageDesc}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
             <div className="absolute w-full left-0 right-0 px-2 flex sm:hidden justify-between bottom-30 z-1000">
               <button
@@ -352,7 +376,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                   if (swiperRef.current?.swiper) {
                     swiperRef.current.swiper.slideNext();
                   } else {
-                    console.warn('Swiper not ready yet');
+                    console.warn("Swiper not ready yet");
                   }
                 }}
                 className={`text-white bg-purple-700 p-2 rounded-sm ${
@@ -375,7 +399,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                     <div className="flex items-start" key={index}>
                       <span className="mr-2 text-black">•</span>
                       <p className="text-black font-medium text-md">
-                        <b>Week {(activeIndex*4) + index + 1}:</b> {week}
+                        <b>Week {activeIndex * 4 + index + 1}:</b> {week}
                       </p>
                     </div>
                   ))}

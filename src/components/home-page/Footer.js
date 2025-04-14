@@ -1,19 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import FooterIcon from "@/assets/images/design_asylum.png";
-import Logo from "@/assets/icons/Logo";
+import Logo from "@/assets/images/owlmindsLogoNew.png";
 import InstagramIcon from "@/assets/icons/InstagramIcon";
 import FacebookIcon from "@/assets/icons/FacebookIcon";
+import LinkedInIcon from "@/assets/icons/LinkedInIcon";
+import TwitterIcon from "@/assets/icons/TwitterIcon";
+import YoutubeIcon from "@/assets/icons/YoutubeIcon";
 
 export default function Footer() {
   // Try multiple approaches to get the image
 
   return (
-    <div className="w-full relative pt-8 pb-4 sm:pt-0 sm:pb-0 bg-[rgba(127,0,255,1)]">
+    <div className="w-full relative pt-12 pb-4 sm:pt-0 sm:pb-0 bg-[rgba(127,0,255,1)]">
       <div className="bg-white mx-7.5 h-auto md:h-[264px] rounded-[30px] relative sm:top-15 z-[100] px-8 py-4 sm:px-4 sm:py-4 flex flex-col md:flex-row items-center justify-between">
         {/* Logo - centered on mobile, left on desktop */}
-        <div className="flex items-start sm:items-center sm:justify-center w-full md:w-auto mb-6 md:mb-0">
-          <Logo />
+        <div className="flex items-start sm:items-center sm:justify-center w-full md:w-auto mb-6 sm:ml-4 md:mb-0">
+        <Image src={Logo} width={270} height={100} />
         </div>
 
         {/* Links - stacked on mobile, side by side on desktop */}
@@ -34,7 +37,7 @@ export default function Footer() {
           {/* Second Column */}
           <div className="text-gray-700 font-medium flex flex-col gap-4 items-start md:items-start">
             <a href="/blog" className="hover:text-gray-600">
-              Blog
+              Blogs
             </a>
             <a href="/terms" className="hover:text-gray-600">
               Terms & Conditions
@@ -48,15 +51,36 @@ export default function Footer() {
           <div className="flex flex-col gap-4 items-start md:items-start mt-6 md:mt-0">
             <h3 className="text-gray-700 font-medium">Find us here</h3>
             <div className="flex gap-4 justify-center md:justify-start">
+            <a
+                href="https://www.youtube.com/@owlmindsofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YoutubeIcon />
+              </a>
               <a
-                href="https://instagram.com"
+                href="https://www.x.com/OwlMindsPvtLtd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterIcon />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/owlminds/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedInIcon />
+              </a>
+              <a
+                href=" https://www.instagram.com/owlmindsofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <InstagramIcon />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/OwlMinds/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -90,9 +114,9 @@ export default function Footer() {
             COPYRIGHT © 2025. ALL RIGHTS RESERVED.
           </p>
         </div>
-        <div className="flex justify-center md:justify-start">
+        {/* <div className="flex justify-center md:justify-start">
           <Image src={FooterIcon} width={150} height={20} />
-        </div>
+        </div> */}
       </div>
       {/* <div className=""> */}
       <svg

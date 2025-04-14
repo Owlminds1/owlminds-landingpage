@@ -45,7 +45,7 @@ export default function Testimonials() {
         <p className="text-base sm:text-xl text-center">See the Impact</p>
         <div className="flex justify-center">
           <h2 className="text-3xl md:text-4xl lg:text-[54px] sm:w-1/2 text-center">
-            Words from Owl Minds' Students & Parents
+          Voices of OwlMinds: Students, Parents & Experts
           </h2>
         </div>
       </div>
