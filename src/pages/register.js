@@ -32,12 +32,12 @@ const validationSchemaStep3 = Yup.object({
   childName: Yup.string().required("Child Name is required"),
   parentName: Yup.string().required("Parent Name is required"),
   parentEmail: Yup.string().required("Parent Email is required"),
-  phoneNumber: Yup.string()
-    .required("Parent Phone Number is required")
-    .matches(
-      /^(\+91[\-\s]?)?[6-9]\d{9}$/,
-      "Phone number must be a valid Indian mobile number"
-    ),
+  // phoneNumber: Yup.string()
+  //   .required("Parent Phone Number is required")
+  //   .matches(
+  //     /^(\+91[\-\s]?)?[6-9]\d{9}$/,
+  //     "Phone number must be a valid Indian mobile number"
+  //   ),
 });
 
 const validationSchemaStep2 = Yup.object({
@@ -200,7 +200,7 @@ export default function Home() {
         child_name: data.childName,
         parent_name: data.parentName,
         email: data.parentEmail,
-        phone: data.phoneNumber,
+        // phone: data.phoneNumber,
       };
 
       await handleApiCall(
@@ -452,7 +452,7 @@ export default function Home() {
         {/* <CustomInput
           name="phoneNumber"
           label=""
-          placeholder="8787878787"
+          placeholder=""
           control={control}
           error={errors.phoneNumber?.message}
           inputType="mobile"
@@ -462,6 +462,7 @@ export default function Home() {
           label="Book my free class!"
           icon={false}
           disabled={isLoading}
+          isLoading={isLoading}
         />
       </form>
     </FormWrapper>
