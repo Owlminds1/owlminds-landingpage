@@ -12,10 +12,12 @@ import CustomNumberInput from "@/components/common/CustomNumberInput";
 import { childGradeData, pointersChildGradeData } from "@/constants/data";
 import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
 const nodeEnv = process.env.NODE_ENV;
+console.log(nodeEnv, "==== node env");
 const baseUrl =
-  nodeEnv === "development"
-    ? "http://dev-api.owlminds.com/"
-    : "http://api.owlminds.com/";
+  nodeEnv === "production"
+    ? "http://api.owlminds.com/"
+    : "http://dev-api.owlminds.com/";
+
 // Month mapping for converting digits to strings
 const monthMap = {
   "01": "January",
