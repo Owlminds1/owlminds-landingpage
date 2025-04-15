@@ -12,11 +12,10 @@ import CustomNumberInput from "@/components/common/CustomNumberInput";
 import { childGradeData, pointersChildGradeData } from "@/constants/data";
 import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
 const nodeEnv = process.env.NODE_ENV;
-console.log(nodeEnv, "==== node env");
 const baseUrl =
   nodeEnv === "production"
-    ? "http://api.owlminds.com/"
-    : "http://dev-api.owlminds.com/";
+    ? "https://api.owlminds.com/"
+    : "https://dev-api.owlminds.com/";
 
 // Month mapping for converting digits to strings
 const monthMap = {
@@ -123,7 +122,11 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await axios.post(url, payload);
+      const response = await axios.post(url, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       return response.data;
     } catch (error) {
       console.error("API Call Error:", error.message);
