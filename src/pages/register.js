@@ -122,7 +122,11 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await axios.post(url, payload);
+      const response = await axios.post(url, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       return response.data;
     } catch (error) {
       console.error("API Call Error:", error.message);
