@@ -166,7 +166,7 @@ export default function HeroSection() {
           </h2>
         </div>
         <p className="text-base sm:text-2xl max-w-2xl text-center sm:text-left">
-        At OwlMinds, we don’t just prepare kids for tests—we prepare them for life. We nurture 15 <b>Officer-Like Qualities (OLQs) </b> inspired by elite <b> Armed Forces training </b>, and power that foundation with future-ready tools like AI, Metaverse, Financial Literacy, and Entrepreneurship.<br/>&nbsp;  &nbsp;<b>“The result?”</b> Bold young leaders who create, lead, and thrive. OwlMinds turns your child into a <b>Creator for Life</b>—not just a consumer!
+        At OwlMinds, we don’t just prepare kids for tests—we prepare them for life. We nurture 15 <b>Officer-Like Qualities (OLQs) </b> inspired by elite <b> Armed Forces training </b>, and power that foundation with future-ready tools like AI, Metaverse, Financial Literacy, and Entrepreneurship.<br/><br/><b>“The result?”</b> Bold young leaders who create, lead, and thrive. OwlMinds turns your child into a <b>Creator for Life</b>—not just a consumer!
         </p>
       </div>
     </div>
