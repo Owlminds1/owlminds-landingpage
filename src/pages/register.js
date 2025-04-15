@@ -11,7 +11,11 @@ import CustomButton from "@/components/common/CustomButton";
 import CustomNumberInput from "@/components/common/CustomNumberInput";
 import { childGradeData, pointersChildGradeData } from "@/constants/data";
 import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
-
+const nodeEnv = process.env.NODE_ENV;
+const baseUrl =
+  nodeEnv === "development"
+    ? "http://dev-api.owlminds.com/"
+    : "http://api.owlminds.com/";
 // Month mapping for converting digits to strings
 const monthMap = {
   "01": "January",
@@ -32,12 +36,6 @@ const validationSchemaStep3 = Yup.object({
   childName: Yup.string().required("Child Name is required"),
   parentName: Yup.string().required("Parent Name is required"),
   parentEmail: Yup.string().required("Parent Email is required"),
-  // phoneNumber: Yup.string()
-  //   .required("Parent Phone Number is required")
-  //   .matches(
-  //     /^(\+91[\-\s]?)?[6-9]\d{9}$/,
-  //     "Phone number must be a valid Indian mobile number"
-  //   ),
 });
 
 const validationSchemaStep2 = Yup.object({
@@ -92,7 +90,7 @@ export default function Home() {
 
     try {
       const response = await axios.get(
-        "https://api.owlminds.com/api/public/index.php?action=get_slots"
+        baseUrl + "api/public/index.php?action=get_slots"
       );
       const slots = response.data.slots || [];
       setAvailableSlots({
@@ -123,12 +121,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const formEncodedPayload = payload;
-      const response = await axios.post(url, formEncodedPayload, {
-        headers: {
-          "Content-Type": "application",
-        },
-      });
+      const response = await axios.post(url, payload);
       return response.data;
     } catch (error) {
       console.error("API Call Error:", error.message);
@@ -147,13 +140,14 @@ export default function Home() {
       if (step === 1) {
         const values = getValues();
         const payload = {
-          registration_id: Math.random().toString(36).substr(2, 9),
+          registration_id:
+            "owl_id" + Math.random().toString(36).substring(2, 7),
           grade: values.selectGrade,
           whatsapp_number: values.whatsAppNumber,
         };
 
         await handleApiCall(
-          "https://api.owlminds.com/api/public/index.php?action=confirm",
+          baseUrl + "api/public/index.php?action=confirm",
           payload
         );
 
@@ -162,13 +156,14 @@ export default function Home() {
       } else if (step === 2) {
         const values = getValues();
         const payload = {
-          registration_id: Math.random().toString(36).substr(2, 9),
+          registration_id:
+            "owl_id" + Math.random().toString(36).substring(2, 7),
           slot_date: values.selectDate,
           slot_time: values.selectSlot,
         };
 
         await handleApiCall(
-          "https://api.owlminds.com/api/public/index.php?action=select_slot",
+          baseUrl + "api/public/index.php?action=select_slot",
           payload
         );
 
@@ -204,7 +199,7 @@ export default function Home() {
       };
 
       await handleApiCall(
-        "https://api.owlminds.com/api/public/index.php?action=contact",
+        baseUrl + "api/public/index.php?action=contact",
         payload
       );
       setShowModal(true);
