@@ -8,7 +8,7 @@ import HeroCreatorImage3Mob from "@/assets/images/banner3Mob.png";
 import HeroCreatorImage2Mob from "@/assets/images/banner2Mob.png";
 import HeroCreatorImageMob from "@/assets/images/Hero_Banner_mob.png";
 import HeroCalenderImage from "@/assets/images/calender_frame1.png";
-import HeroCurriculumImage from "@/assets/images/medal.png";
+import HeroCurriculumImage from "@/assets/images/medal1.png";
 import AboutUsIcon from "@/assets/images/about_us_icon.png";
 import BannerText from "@/assets/images/bannerText.png"
 import Calender from "@/assets/images/Calendar-3.png";
@@ -104,7 +104,7 @@ export default function HeroSection() {
         </div>
 
         {/* Badge UI */}
-        <div className="col-span-1 sm:col-span-3 sm:row-span-3 sm:col-start-7 sm:row-start-7">
+        <div className="col-span-1 sm:col-span-3 sm:row-span-3 sm:col-start-7 sm:row-start-7 sm:mt-[-17px]">
           <div className="relative">
             <div className="absolute top-0 sm:top-2 left-4 px-2 py-4 sm:py-2 text-white md:text-[28px] text-[24px] font-bold bg-opacity-75 rounded z-10 md:leading-[35px] leading-[25px]">
               <span className="font-[500] md:font-[500]">

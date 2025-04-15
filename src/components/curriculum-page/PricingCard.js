@@ -21,7 +21,7 @@ export default function PricingCard() {
             key={priceCard.id}
             className={`col-span-1 ${
               priceCard.id === "3"
-                ? "sm:transform sm:scale-110"
+                ? "sm:transform sm:scale-100"
                 :
               priceCard.id === "1" ?
               "sm:transform sm:scale-80"
@@ -30,10 +30,11 @@ export default function PricingCard() {
                  "sm:transform sm:scale-90"
                  : ""
             }  
-            ${index === 0 ? 'sm:mr-4' : ''} 
-            ${index === 2 ? 'sm:ml-12' : ''}`}
+            ${index === 0 ? 'sm:ml-2' : ''}
+            ${index === 1 ? 'sm:mr-12' : ''}  
+            ${index === 2 ? 'sm:mr-4' : ''}`}
           >
-            <div className="relative">
+            <div className={`relative ${index === 0 ? "sm:h-150 h-130" :  index === 1 ? "sm:h-170 h-150" :""}`}>
               <Image
                 src={priceCard.active ? PriceCard4 : PriceCard5}
                 alt={"price-card-1"}
@@ -78,7 +79,7 @@ export default function PricingCard() {
                   {priceCard.desc}
                 </div>
                 
-                <div className={`flex flex-col items-start ${priceCard.active ? "gap-2 mt-[2rem]" : "gap-6 mt-[3rem]"} `}>
+                <div className={`flex flex-col items-start ${priceCard.active ? "sm:gap-2 gap-4 mt-[2rem]" : "gap-6 mt-[3rem]"} `}>
                   {priceCard.priceItems.map((item) => (
                     <div key={item.id} className="flex items-center gap-x-4">
                       {!priceCard.active ?<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +137,7 @@ export default function PricingCard() {
               <div className="absolute w-full bottom-10 px-6">
                 <div className="flex justify-center items-center">
                   <button
-                    className={`w-full font-semibold rounded-lg px-6 py-3 ${
+                    className={`w-full font-semibold rounded-lg px-6 py-4 ${
                       priceCard.active
                         ? "bg-white text-black"
                         : "bg-purple-700 text-white"
@@ -151,7 +152,7 @@ export default function PricingCard() {
         ))}
       </div>
     </div>
-    <div className="text-center p-4">
+    <div className="text-center p-4 mt-4">
         <p className="font-bold text-purple-700 text-[24px]">100% Risk-Free – Unused Classes? Money-Back Guarantee!</p>
         <p className="text-black text-[15px]">We believe in delivering value. If your child has unused classes, we’ll refund the amount for those sessions—no questions asked!</p>
     </div>
