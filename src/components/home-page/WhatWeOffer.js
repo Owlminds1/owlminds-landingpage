@@ -53,110 +53,110 @@ export default function WhatWeOffer({ ribbon, backImg }) {
   const defaultImages = { mobile: weOfferImage, desktop: weOfferImage };
   const currentImages = imageMapping[activeIndex] || defaultImages;
 
-  useEffect(() => {
-    // Only run this effect on desktop screens
-    if (window.innerWidth < 640) return;
+  // useEffect(() => {
+  //   // Only run this effect on desktop screens
+  //   if (window.innerWidth < 640) return;
 
-    let lastScrollTime = Date.now();
-    const scrollDebounceTime = 400;
-    const scrollAmount = 20;
-    const scrollDuration = 800;
+  //   let lastScrollTime = Date.now();
+  //   const scrollDebounceTime = 400;
+  //   const scrollAmount = 20;
+  //   const scrollDuration = 800;
 
-    const handleScroll = (e) => {
-      const now = Date.now();
-      if (
-        isScrolling.current ||
-        now - lastScrollTime < scrollDebounceTime ||
-        !swiperRef.current?.swiper
-      )
-        return;
+    // const handleScroll = (e) => {
+    //   const now = Date.now();
+    //   if (
+    //     isScrolling.current ||
+    //     now - lastScrollTime < scrollDebounceTime ||
+    //     !swiperRef.current?.swiper
+    //   )
+    //     return;
 
-      if (isComponentInView) {
-        const delta = Math.sign(e.deltaY);
-        isScrolling.current = true;
-        lastScrollTime = now;
+    //   if (isComponentInView) {
+    //     const delta = Math.sign(e.deltaY);
+    //     isScrolling.current = true;
+    //     lastScrollTime = now;
 
-        // Scroll up
-        if (delta < 0) {
-          if (activeIndex >= 0) {
-            e.preventDefault();
-            window.scrollBy({
-              top: -scrollAmount,
-              behavior: "smooth",
-              duration: scrollDuration,
-            });
-            swiperRef.current.swiper.slidePrev();
-          }
-        }
-        // Scroll down
-        else if (delta > 0) {
-          if (isLastSlide) {
-            e.preventDefault();
-            window.scrollBy({
-              top: scrollAmount,
-              behavior: "smooth",
-              duration: scrollDuration,
-            });
-            // Set isComponentInView to false after reaching last slide
-            setIsComponentInView(false);
-          } else {
-            e.preventDefault();
-            if (activeIndex < whatOfferList.length - 1) {
-              window.scrollBy({
-                top: scrollAmount,
-                behavior: "smooth",
-                duration: scrollDuration,
-              });
-              swiperRef.current.swiper.slideNext();
-            } else {
-              setIsLastSlide(true);
-            }
-          }
-        }
+    //     // Scroll up
+    //     if (delta < 0) {
+    //       if (activeIndex >= 0) {
+    //         e.preventDefault();
+    //         window.scrollBy({
+    //           top: -scrollAmount,
+    //           behavior: "smooth",
+    //           duration: scrollDuration,
+    //         });
+    //         swiperRef.current.swiper.slidePrev();
+    //       }
+    //     }
+    //     // Scroll down
+    //     else if (delta > 0) {
+    //       if (isLastSlide) {
+    //         e.preventDefault();
+    //         window.scrollBy({
+    //           top: scrollAmount,
+    //           behavior: "smooth",
+    //           duration: scrollDuration,
+    //         });
+    //         // Set isComponentInView to false after reaching last slide
+    //         setIsComponentInView(false);
+    //       } else {
+    //         e.preventDefault();
+    //         if (activeIndex < whatOfferList.length - 1) {
+    //           window.scrollBy({
+    //             top: scrollAmount,
+    //             behavior: "smooth",
+    //             duration: scrollDuration,
+    //           });
+    //           swiperRef.current.swiper.slideNext();
+    //         } else {
+    //           setIsLastSlide(true);
+    //         }
+    //       }
+    //     }
 
-        setTimeout(() => {
-          isScrolling.current = false;
-        }, scrollDebounceTime);
-      }
-    };
+    //     setTimeout(() => {
+    //       isScrolling.current = false;
+    //     }, scrollDebounceTime);
+    //   }
+    // };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.intersectionRatio === 1) {
-          setIsFullyVisible(true);
-        } else if (entry.intersectionRatio === 0) {
-          setIsFullyVisible(false);
-        }
+    // const observer = new IntersectionObserver(
+    //   ([entry]) => {
+    //     if (entry.intersectionRatio === 1) {
+    //       setIsFullyVisible(true);
+    //     } else if (entry.intersectionRatio === 0) {
+    //       setIsFullyVisible(false);
+    //     }
 
-        if (isFullyVisible && swiperRef.current?.swiper) {
-          window.removeEventListener("wheel", handleScroll);
-          setIsComponentInView(true);
-          swiperRef.current.swiper.allowTouchMove = true;
-          swiperRef.current.swiper.allowSlideNext = true;
-          swiperRef.current.swiper.allowSlidePrev = true;
-          window.addEventListener("wheel", handleScroll, { passive: false });
-        } else if (entry.intersectionRatio === 0 && swiperRef.current?.swiper) {
-          swiperRef.current.swiper.allowTouchMove = false;
-          swiperRef.current.swiper.allowSlideNext = false;
-          swiperRef.current.swiper.allowSlidePrev = false;
-          window.removeEventListener("wheel", handleScroll);
-          setIsLastSlide(false);
-        }
-      },
-      { threshold: [0, 1] }
-    );
+    //     if (isFullyVisible && swiperRef.current?.swiper) {
+    //       window.removeEventListener("wheel", handleScroll);
+    //       setIsComponentInView(true);
+    //       swiperRef.current.swiper.allowTouchMove = true;
+    //       swiperRef.current.swiper.allowSlideNext = true;
+    //       swiperRef.current.swiper.allowSlidePrev = true;
+    //       window.addEventListener("wheel", handleScroll, { passive: false });
+    //     } else if (entry.intersectionRatio === 0 && swiperRef.current?.swiper) {
+    //       swiperRef.current.swiper.allowTouchMove = false;
+    //       swiperRef.current.swiper.allowSlideNext = false;
+    //       swiperRef.current.swiper.allowSlidePrev = false;
+    //       window.removeEventListener("wheel", handleScroll);
+    //       setIsLastSlide(false);
+    //     }
+    //   },
+    //   { threshold: [0, 1] }
+    // );
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
-    }
+    // if (componentRef.current) {
+    //   observer.observe(componentRef.current);
+    // }
 
-    return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
-      }
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, [isComponentInView, isLastSlide, activeIndex, isFullyVisible]);
+  //   return () => {
+  //     if (componentRef.current) {
+  //       observer.unobserve(componentRef.current);
+  //     }
+  //     window.removeEventListener("wheel", handleScroll);
+  //   };
+  // }, [isComponentInView, isLastSlide, activeIndex, isFullyVisible]);
 
   const handleSlideChange = (swiper) => {
     const activeSlideIndex = swiper.activeIndex;
@@ -242,9 +242,9 @@ export default function WhatWeOffer({ ribbon, backImg }) {
             ))}
           </div>
           <div
-            className={`relative col-span-1 sm:col-span-2 px-4 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${
+            className={`relative col-span-1 sm:col-span-2 px-1 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${
               backImg
-                ? "h-[750px] sm:h-[650px] pb-92 sm:pb-[180px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]"
+                ? "h-[750px] sm:h-[730px] pb-95 sm:pb-[195px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]"
                 : "pb-60 h-[600px] bg-[#fff6e9]"
             }`}
           >
@@ -263,7 +263,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                 clickable: false,
               }}
               autoplay={{
-                delay: 3000,
+                delay: 1500,
                 disableOnInteraction: true,
               }}
               navigation={false}
@@ -325,7 +325,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
               ? courseStructure[activeIndex] && (
                   <div className="block sm:hidden absolute bottom-8 right-4 left-6 mx-6 text-left text-black">
                     <p
-                      className="text-black font-semibold text-3xl mx-auto mt-5 ml-2"
+                      className="text-black text-center font-semibold text-3xl mx-auto mt-5 ml-2"
                       data-swiper-parallax="-300"
                     >
                       {courseStructure[activeIndex].moduleTitle}
@@ -346,7 +346,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                   </div>
                 )
               : whatOfferList[activeIndex] && (
-                  <div className="block sm:hidden absolute bottom-8 right-4 left-4 mx-6 mt-6 text-center text-black">
+                  <div className="block sm:hidden absolute bottom-8 right-4 left-4 mx-2 mt-6 text-center text-black">
                     <div
                       className="text-2xl font-medium pb-2"
                       data-swiper-parallax="-300"

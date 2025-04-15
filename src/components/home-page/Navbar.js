@@ -24,15 +24,15 @@ export default function Navbar() {
                 <Image
                   src={LogoNav}
                   alt="Logo"
-                  width={200}
-                  height={140}
+                  width={136}
+                  height={38}
                   className="block sm:hidden"
                 />
                 <Image
                   src={LogoNav}
                   alt="Logo"
-                  width={270}
-                  height={150}
+                  width={207}
+                  height={58}
                   className="sm:block hidden"
                 />
               </Link>

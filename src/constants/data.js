@@ -264,19 +264,19 @@ export const whatOfferList = [
 export const testimonialData = [
   {
     id: 1,
-    name: "Mrs. Peterson",
+    name: "Mr. Andrew",
     image: TestimonialImage1,
     desc: "OwlMinds has helped my son become more focused and responsible. He now plans his day, sets goals, and follows through—traits I once thought were years away!",
   },
   {
     id: 2,
-    name: "Jane Smith",
+    name: "Mrs. Ruth",
     image: TestimonialImage2,
     desc: "OwlMinds does more than teach. It shapes character. My daughter is more decisive, disciplined, and driven—qualities that will help her for life.",
   },
   {
     id: 3,
-    name: "John Doe",
+    name: "Mr. Robert",
     image: TestimonialImage3,
     desc: "Finally, a platform that understands how kids learn best! OwlMinds mixes fun with structure, and it’s made a real difference in my daughter’s learning journey.",
   },

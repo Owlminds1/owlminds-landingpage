@@ -24,14 +24,14 @@ export default function FAQ() {
               onClick={() => toggleAccordion(item.id)}
             >
               <div className="flex gap-2 md:gap-4">
-                <span className="text-black font-medium text-base md:text-xl lg:text-[24px]">
+                <span className="text-black font-small text-base md:text-xl lg:text-[24px]">
                   {item.id}
                 </span>
-                <span className="text-black font-medium text-base md:text-xl lg:text-[24px]">
+                <span className="text-black font-small text-base md:text-xl lg:text-[24px]">
                   {item.question}
                 </span>
               </div>
-              <span className="text-2xl md:text-3xl lg:text-4xl text-black">
+              <span className="text-2xl md:text-3xl lg:text-4xl text-black font-small">
                 {activeId === item.id ? "−" : "+"}
               </span>
             </button>
