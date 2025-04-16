@@ -54,7 +54,7 @@ export default function Testimonials() {
       <div className="testimonial-swiper ml-0 sm:ml-16">
         <Swiper
           ref={swiperRef}
-          // modules={[Autoplay]} // Add the Autoplay module
+          modules={[Autoplay]} // Add the Autoplay module
           spaceBetween={50}
           slidesPerView={1}
           autoplay={{
