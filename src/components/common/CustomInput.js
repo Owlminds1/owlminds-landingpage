@@ -1,7 +1,7 @@
 import { Controller } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { isValidPhoneNumber } from 'react-phone-number-input';
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 export default function CustomInput({
   name,
@@ -11,7 +11,7 @@ export default function CustomInput({
   error,
   placeholder,
   inputType,
-  //   classStr,
+  defaultCountry, // New prop to receive dynamic country code
 }) {
   return (
     <div className="flex flex-col">
@@ -27,15 +27,19 @@ export default function CustomInput({
                 onChange={onChange}
                 international
                 countryCallingCodeEditable={false}
-                defaultCountry="IN"
+                defaultCountry={defaultCountry || "IN"} // Use passed country or fallback to IN
                 placeholder="Enter your mobile number"
                 className={`border-[2px] ${
-                  error ? "border-red-500" : "border-gray-200"
+                  error || (value && !isValidPhoneNumber(value))
+                    ? "border-red-500"
+                    : "border-gray-200"
                 } py-3 px-2 text-xs rounded-lg text-black focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 [&_input]:outline-none [&_input]:border-0 [&_input]:ring-0 [&_input:focus]:outline-none [&_input:focus]:border-0 [&_input:focus]:ring-0`}
                 error={value ? !isValidPhoneNumber(value) : false}
               />
               {value && !isValidPhoneNumber(value) && !error && (
-                <p className="text-red-500 text-xs pt-2">Please enter a valid phone number</p>
+                <p className="text-red-500 text-xs pt-2">
+                  Please enter a valid phone number
+                </p>
               )}
             </>
           ) : (
