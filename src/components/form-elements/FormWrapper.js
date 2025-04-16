@@ -37,7 +37,7 @@ export default function FormWrapper({
           </p>
 
           <p
-            className={`text-black text-center font-sans font-semibold text-xs pt-6 ${
+            className={`text-black text-center font-sans font-bold text-xs pt-6 ${
               secondryNote1 ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -45,7 +45,7 @@ export default function FormWrapper({
           </p>
 
           <p
-            className={`text-black text-center font-sans font-semibold text-xs ${
+            className={`text-black text-center font-sans text-xs ${
               secondryNote2 ? "opacity-100" : "opacity-0"
             }`}
           >

@@ -54,7 +54,7 @@ export default function Testimonials() {
       <div className="testimonial-swiper ml-0 sm:ml-16">
         <Swiper
           ref={swiperRef}
-          modules={[Autoplay]} // Add the Autoplay module
+          // modules={[Autoplay]} // Add the Autoplay module
           spaceBetween={50}
           slidesPerView={1}
           autoplay={{
@@ -66,15 +66,15 @@ export default function Testimonials() {
           {testimonialData.map((slide) => (
             <SwiperSlide className="">
               <div className="flex flex-col sm:flex-row sm:items-center sm:px-4 sm:py-8">
-                <div className="">
+                <div className="absolute sm:relative">
                   <Image
                     src={slide.image}
                     alt={slide.name}
                     // className="absolute h-full w-full object-cover"
                   />
                 </div>
-                <div className="sm:absolute w-full sm:w-3xl sm:left-[360px] text-black p-12 bg-[#FFFAF2] rounded-2xl">
-                  <div className="absolute top-[52%] sm:-top-4 right-8 sm:right-8">
+                <div className="sm:absolute min-h-80 sm:min-h-60 mt-90 sm:mt-0 sm:top-35 w-full sm:w-2xl sm:left-[380px] text-black sm:text-left text-center py-12 px-6 bg-[#FFFAF2] rounded-2xl z-100">
+                  <div className="absolute top-85 sm:top-4 right-8 sm:right-8">
                     <Image src={CommaIcon} height={60} width={60} />
                   </div>
                   <div className="flex gap-2 mb-4">

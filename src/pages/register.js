@@ -253,7 +253,7 @@ export default function Home() {
             </span>{" "}
             for Life!
           </span>
-          <span className="sm:hidden">Start your Child's Journey</span>
+          <span className="sm:hidden text-white">Start your Child's Journey</span>
         </span>
       }
       page={step}
@@ -503,7 +503,7 @@ export default function Home() {
             width={136}
             height={38}
             priority
-            className="w-auto h-auto ml-5 sm:hidden !w-[180px]"
+            className="w-auto h-auto ml-5 p-2 sm:hidden !w-[180px]"
           />
           <Image
             src={LogoNav}

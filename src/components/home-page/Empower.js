@@ -49,26 +49,26 @@ export default function Empower() {
         </div>
       </div>
       {/* Text Container for Mobile - Shown on mobile, hidden sm and up */}
-      <div className="flex justify-center py-10 px-4 sm:hidden">
-        <div className="text-center max-w-3xl">
-            <p className="text-4xl font-[500] pb-4 leading-12 text-black">
+      <div className="absolute  left-3 right-3 mx-auto right-0 flex justify-center px-4 sm:hidden bg-[url(../assets/images/standingOvation.png)] bg-cover z-10 pb-0 sm:mt-0 mt-[-100px] rounded-lg">
+            {/* <div className="text-center max-w-3xl"> */}
+            {/* <p className="text-4xl font-[500] pb-4 leading-12 text-black">
               From Ideas to Standing Ovations!
             </p>
             <p className="text-xl leading-[30px] text-black">
             We prepare kids to pitch like pros—equipping them with the confidence, creativity, and strategy to raise investor funding, deliver a compelling investor pitch, and think like entrepreneurs!
-            </p>
+            </p> */}
             <a
                 href="/register"
-                className="bg-[#7F00FF] text-white text-[16px] font-[700] leading-[24px] w-[80%] py-3 rounded-lg mt-4 text-center block mx-auto"
+                className="bg-[#7F00FF] text-white text-[16px] font-[700] leading-[24px] w-[80%] py-3 rounded-lg text-center block mx-auto h-12 mt-70"
               >
                 <span className="flex items-center justify-center">
                   Book a FREE Trial Class &nbsp;<ForwardArrowIcon color={"#fff"} height={14} width={24} className="pl-2" />
                 </span>
               </a>
-          </div>
+          {/* </div> */}
       </div>
       <div
-        className="w-full h-[700px] md:h-[459px] relative mb-24"
+        className="w-full h-[700px] md:h-[459px] relative mb-24 sm:mt-0 mt-90"
         style={{ background: "rgba(127, 0, 255, 1)" }}
       >
         <svg
