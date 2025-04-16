@@ -140,9 +140,10 @@ export default function Home() {
   const handleApiCall = async (url, payload) => {
     setIsLoading(true);
     setError(null);
+    const stringPayload = JSON.stringify(payload);
 
     try {
-      const response = await axios.post(url, payload, {
+      const response = await axios.post(url, stringPayload, {
         headers: {
           "Content-Type": "application/json",
         },
