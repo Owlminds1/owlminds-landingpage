@@ -8,7 +8,7 @@ export default function PricingCard() {
   return (
     <>
     <div className="max-w-3xl md:max-w-4xl lg:max-w-7xl mx-auto mb-6 sm:mb-10 px-4 sm:px-2 text-black">
-      <div className="mb-8 sm:ml-11 ml-2">
+      <div className="mb-8 sm:ml-11">
         <p className="text-xl text-center sm:text-left pb-4">
           Smart plans for every need
         </p>
