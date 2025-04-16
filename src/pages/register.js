@@ -14,10 +14,7 @@ import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
 
 // Determine base URL based on environment
 const nodeEnv = process.env.NODE_ENV;
-const baseUrl =
-  nodeEnv === "production"
-    ? "https://api.owlminds.com/"
-    : "https://dev-api.owlminds.com/";
+const baseUrl = "https://dev-api.owlminds.com/";
 
 // Month mapping for converting digits to strings
 const monthMap = {
