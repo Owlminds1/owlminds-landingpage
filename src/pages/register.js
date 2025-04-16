@@ -147,8 +147,7 @@ export default function Home() {
       if (step === 1) {
         const values = getValues();
         const payload = {
-          registration_id:
-            "owl_id" + Math.random().toString(36).substring(2, 7),
+          owl_id: Math.random().toString(36).substring(2, 7),
           grade: values.selectGrade,
           whatsapp_number: values.whatsAppNumber,
         };
@@ -163,8 +162,7 @@ export default function Home() {
       } else if (step === 2) {
         const values = getValues();
         const payload = {
-          registration_id:
-            "owl_id" + Math.random().toString(36).substring(2, 7),
+          owl_id: Math.random().toString(36).substring(2, 7),
           slot_date: values.selectDate,
           slot_time: values.selectSlot,
         };
