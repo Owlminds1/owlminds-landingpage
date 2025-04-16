@@ -140,7 +140,7 @@ export default function PricingCard() {
                     className={`w-full font-semibold rounded-lg px-6 py-4 ${
                       priceCard.active
                         ? "bg-white text-black"
-                        : "bg-purple-700 text-white"
+                        : "bg-[#7F00FF] text-white"
                     }`}
                   >
                     Enroll Now!!
