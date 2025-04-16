@@ -2,12 +2,13 @@ import Image from "next/image";
 import PriceCard4 from "@/assets/images/Card_4.png";
 import PriceCard5 from "@/assets/images/Card_8.png";
 import { pricingCardData } from "@/constants/data";
+import Link from "next/link";
 
 export default function PricingCard() {
   return (
     <>
     <div className="max-w-3xl md:max-w-4xl lg:max-w-7xl mx-auto mb-6 sm:mb-10 px-4 sm:px-2 text-black">
-      <div className="mb-8">
+      <div className="mb-8 ml-11">
         <p className="text-xl text-center sm:text-left pb-4">
           Smart plans for every need
         </p>
@@ -136,8 +137,9 @@ export default function PricingCard() {
               </div>
               <div className="absolute w-full bottom-10 px-6">
                 <div className="flex justify-center items-center">
+                <Link href="/register">
                   <button
-                    className={`w-full font-semibold rounded-lg px-6 py-4 ${
+                    className={`w-full font-semibold text-xl rounded-lg sm:px-30 sm:py-4 px-25 py-3 ${
                       priceCard.active
                         ? "bg-white text-black"
                         : "bg-[#7F00FF] text-white"
@@ -145,6 +147,7 @@ export default function PricingCard() {
                   >
                     Enroll Now!!
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

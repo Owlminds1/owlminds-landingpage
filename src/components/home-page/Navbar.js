@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import CalendarIcon from "@/assets/icons/CalenderIcon";
 import LogoNav  from "@/assets/images/owlmindsLogoNew.png";
+import NavGirl  from "@/assets/images/navGirl.png";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -153,6 +154,11 @@ export default function Navbar() {
               </button>
             </Link>
           </div>
+          <Image
+            src={NavGirl}
+            alt="nav"
+            className="sm:hidden block"
+          />
         </div>
       </div>
     </nav>

@@ -10,7 +10,7 @@ export default function FAQ() {
 
   return (
     <div
-      className="max-w-3xl md:max-w-4xl lg:max-w-6xl mx-auto py-8 px-4 sm:px-2"
+      className="max-w-3xl md:max-w-4xl lg:max-w-6xl mx-auto py-24 px-4 sm:px-2"
       style={{ marginBottom: "30px" }}
     >
       <h1 className="text-2xl md:text-4xl lg:text-[54px] font-medium mb-4 md:mb-8 text-center text-black">
@@ -31,7 +31,7 @@ export default function FAQ() {
                   {item.question}
                 </span>
               </div>
-              <span className="text-2xl md:text-3xl lg:text-4xl text-black font-small">
+              <span className="text-2xl md:text-2xl lg:text-2xl text-black font-small">
                 {activeId === item.id ? "−" : "+"}
               </span>
             </button>

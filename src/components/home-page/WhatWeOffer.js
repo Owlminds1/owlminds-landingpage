@@ -217,7 +217,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-x-8 h-full">
-          <div className="hidden col-span-1 sm:flex flex-col justify-between">
+          <div className="hidden col-span-1 sm:flex flex-col justify-evenly">
             {whatOfferList.map((item, i) => (
               <div
                 key={i}
@@ -242,9 +242,9 @@ export default function WhatWeOffer({ ribbon, backImg }) {
             ))}
           </div>
           <div
-            className={`relative col-span-1 sm:col-span-2 px-1 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${
+            className={`relative col-span-1 sm:col-span-2 px-3 pt-6  sm:px-8 sm:py-12 rounded-2xl sm:rounded-[40px] ${
               backImg
-                ? "h-[750px] sm:h-[730px] pb-95 sm:pb-[195px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]"
+                ? "h-[750px] sm:h-[710px] pb-95 sm:pb-[195px] bg-gradient-to-r from-[#ff7f3e33] to-[#7f00ff33]"
                 : "pb-60 h-[600px] bg-[#fff6e9]"
             }`}
           >
@@ -338,7 +338,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                         >
                           <span className="mr-2 text-black">•</span>
                           <p className="text-black font-medium text-md">
-                            <b>Week {activeIndex * 4 + index + 1}:</b> {week}
+                            <span className="font-semibold">Week {activeIndex * 4 + index + 1}:</span> {week}
                           </p>
                         </div>
                       ))}
@@ -399,7 +399,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
                     <div className="flex items-start" key={index}>
                       <span className="mr-2 text-black">•</span>
                       <p className="text-black font-medium text-md">
-                        <b>Week {activeIndex * 4 + index + 1}:</b> {week}
+                        <span className="font-semibold">Week {activeIndex * 4 + index + 1}:</span> {week}
                       </p>
                     </div>
                   ))}
