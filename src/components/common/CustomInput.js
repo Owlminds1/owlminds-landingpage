@@ -1,7 +1,7 @@
 import { Controller } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { isValidPhoneNumber } from 'react-phone-number-input';
+import { isValidPhoneNumber } from "react-phone-number-input";
 
 export default function CustomInput({
   name,
@@ -35,7 +35,9 @@ export default function CustomInput({
                 error={value ? !isValidPhoneNumber(value) : false}
               />
               {value && !isValidPhoneNumber(value) && !error && (
-                <p className="text-red-500 text-xs pt-2">Please enter a valid phone number</p>
+                <p className="text-red-500 text-xs pt-2">
+                  Please enter a valid phone number
+                </p>
               )}
             </>
           ) : (

@@ -491,30 +491,28 @@ export default function Home() {
           : "bg-[url(../assets/images/form-bg-mobile-3.jpeg)] sm:bg-[url(../assets/images/form-bg-3.jpeg)]"
       } aspect-[395/1600] sm:aspect-[16/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
     >
-      
-
       <div className="absolute sm:mx-24 sm:mt-20 mt-20">
         {/* Logo in top left corner */}
-      <div className="absolute top-[-80] sm:left-[-4] sm:py-0 py-2 z-50">
-        <Link href="/">
-          <Image
-            src={LogoNav}
-            alt="Logo"
-            width={136}
-            height={38}
-            priority
-            className="w-auto h-auto ml-5 sm:hidden !w-[180px]"
-          />
-          <Image
-            src={LogoNav}
-            alt="Logo"
-            width={207}
-            height={58}
-            priority
-            className="w-auto h-auto ml-3 sm:block hidden !w-[200px]"
-          />
-        </Link>
-      </div>
+        <div className="absolute top-[-80] sm:left-[-4] sm:py-0 py-2 z-50">
+          <Link href="/">
+            <Image
+              src={LogoNav}
+              alt="Logo"
+              width={136}
+              height={38}
+              priority
+              className="w-auto h-auto ml-5 sm:hidden !w-[180px]"
+            />
+            <Image
+              src={LogoNav}
+              alt="Logo"
+              width={207}
+              height={58}
+              priority
+              className="w-auto h-auto ml-3 sm:block hidden !w-[200px]"
+            />
+          </Link>
+        </div>
         <div>{currentForm()}</div>
       </div>
 
