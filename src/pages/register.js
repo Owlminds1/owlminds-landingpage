@@ -11,6 +11,8 @@ import CustomButton from "@/components/common/CustomButton";
 import CustomNumberInput from "@/components/common/CustomNumberInput";
 import { childGradeData, pointersChildGradeData } from "@/constants/data";
 import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
+
+// Determine base URL based on environment
 const nodeEnv = process.env.NODE_ENV;
 const baseUrl =
   nodeEnv === "production"
@@ -46,7 +48,7 @@ const validationSchemaStep2 = Yup.object({
 
 const validationSchemaStep1 = Yup.object({
   whatsAppNumber: Yup.string()
-    .required("phoneNumber is required")
+    .required("Phone number is required")
     .matches(
       /^(\+91[\-\s]?)?[6-9]\d{9}$/,
       "Phone number must be a valid Indian mobile number"
@@ -60,9 +62,11 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [availableSlots, setAvailableSlots] = useState({
     slots: [],
-    selectedDate: [],
+    selectedDate: null, // Fixed from array to null
   });
   const [error, setError] = useState(null);
+  const [defaultCountry, setDefaultCountry] = useState("IN"); // State for dynamic country code
+  const [isLoadingCountry, setIsLoadingCountry] = useState(true); // Loading state for country fetch
 
   const {
     control,
@@ -84,6 +88,24 @@ export default function Home() {
     mode: "onChange",
   });
 
+  // Fetch country code based on IP address on page load
+  useEffect(() => {
+    const fetchCountryCode = async () => {
+      try {
+        const response = await axios.get("https://ipapi.co/json/");
+        const countryCode = response.data.country_code || "IN"; // Fallback to India
+        setDefaultCountry(countryCode);
+      } catch (error) {
+        console.error("Error fetching IP-based location:", error);
+        setDefaultCountry("IN"); // Fallback to India on error
+      } finally {
+        setIsLoadingCountry(false);
+      }
+    };
+
+    fetchCountryCode();
+  }, []);
+
   // Fetch slots function
   const fetchDateSlot = async () => {
     setIsLoading(true);
@@ -96,9 +118,8 @@ export default function Home() {
       const slots = response.data.slots || [];
       setAvailableSlots({
         slots: slots,
-        selectedDate: slots.length > 0 ? slots[0].date : null, // Default to first date
+        selectedDate: slots.length > 0 ? slots[0].date : null,
       });
-      // Set default form value after fetching
       if (slots.length > 0) {
         setValue("selectDate", slots[0].date);
       }
@@ -198,7 +219,6 @@ export default function Home() {
         child_name: data.childName,
         parent_name: data.parentName,
         email: data.parentEmail,
-        // phone: data.phoneNumber,
       };
 
       await handleApiCall(
@@ -270,6 +290,7 @@ export default function Home() {
           control={control}
           error={errors.whatsAppNumber?.message}
           inputType="mobile"
+          defaultCountry={defaultCountry} // Pass the dynamic country code
         />
 
         <CustomNumberInput
@@ -291,11 +312,10 @@ export default function Home() {
   );
 
   const Step2Form = () => {
-    const selectedFormDate = watch("selectDate"); // Track form-selected date
-    // Format date for display (remove year, convert month digit to string)
+    const selectedFormDate = watch("selectDate");
     const formatDateLabel = (dateStr) => {
       const [year, month, day] = dateStr.split("-");
-      const monthName = monthMap[month] || month; // Convert month to string
+      const monthName = monthMap[month] || month;
       return `${day} ${monthName}`;
     };
 
@@ -355,116 +375,48 @@ export default function Home() {
         isLoading={isLoading}
         error={error}
       >
-        <form onSubmit={handleSubmit(handleNextStep)}>
-          <CustomNumberInput
-            name="selectDate"
-            label="Select Date"
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <CustomInput
+            name="childName"
+            label="Please Enter Following Details."
+            placeholder="Enter Child's Name"
             control={control}
-            error={errors.selectDate?.message}
-            data={dateOptions}
+            error={errors.childName?.message}
+          />
+          <CustomInput
+            name="parentName"
+            label=""
+            placeholder="Enter Parent Name"
+            control={control}
+            error={errors.parentName?.message}
           />
 
-          <CustomNumberInput
-            name="selectSlot"
-            label="Select Time"
+          <CustomInput
+            name="parentEmail"
+            label=""
+            placeholder="Parent Email ID"
             control={control}
-            error={errors.selectSlot?.message}
-            data={timeOptions}
+            error={errors.parentEmail?.message}
           />
+          {/* <CustomInput
+            name="phoneNumber"
+            label=""
+            placeholder=""
+            control={control}
+            error={errors.phoneNumber?.message}
+            inputType="mobile"
+          /> */}
 
           <CustomButton
-            label="Confirm Slot"
+            label="Book my free class!"
             icon={false}
             disabled={isLoading}
+            isLoading={isLoading}
           />
         </form>
       </FormWrapper>
     );
   };
-
-  const Step3Form = () => (
-    <FormWrapper
-      title={"Contact Details"}
-      note="We'll send the class link and details via email and WhatsApp"
-      pointersData={pointersChildGradeData}
-      pointerTitle={
-        <span style={{ position: "relative", display: "inline-block" }}>
-          <span className="hidden sm:inline">
-            Start your Child's Journey to Becoming a{" "}
-            <span style={{ position: "relative", zIndex: 2 }}>
-              CREATOR
-              <svg
-                style={{
-                  position: "absolute",
-                  top: "-5px",
-                  left: "-10px",
-                  width: "calc(100% + 20px)",
-                  height: "calc(100% + 10px)",
-                  zIndex: 1,
-                }}
-                width="210"
-                height="64"
-                viewBox="0 0 210 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M82.4006 55.352C83.6404 55.0443 84.867 54.5463 86.1134 54.4584C97.1324 53.726 108.185 53.3817 119.17 52.2904C127.776 51.4334 136.329 49.8294 144.868 48.2913C154.667 46.5262 164.526 44.9588 174.166 42.4173C182.957 40.0955 191.848 37.7151 199.85 32.6833C200.838 32.0607 201.813 31.4162 202.761 30.7277C207.919 26.963 206.626 22.3267 202.86 18.8623C198.001 14.3945 192.007 12.5708 185.981 10.9741C174.524 7.93451 162.875 6.36711 151.14 5.40762C131.191 3.78163 111.248 3.56923 91.2649 4.69717C73.8016 5.67862 56.5172 8.081 39.3788 11.7651C30.4615 13.6841 21.6237 16.1231 13.449 20.6421C10.7373 22.1436 8.20469 24.2384 5.94387 26.4943C3.14602 29.2921 3.34492 32.8737 5.93724 35.9646C10.2666 41.1282 15.9949 43.7723 21.637 46.4969C32.1389 51.5653 43.1247 55.0297 54.3161 57.6078C60.7273 59.08 67.2445 59.9736 73.7021 61.1748C75.2734 61.4677 76.8182 61.9292 78.4956 62.3466C70.7783 65.562 63.2069 63.3281 55.7084 61.9951C45.1402 60.1127 34.7908 57.1537 24.8525 52.6639C17.3275 49.2655 9.94174 45.5301 3.79576 39.4875C-2.13806 33.6501 -0.580016 26.1061 4.78363 21.4405C12.6004 14.6362 22.0282 11.6992 31.5952 9.40669C36.7533 8.16889 41.9181 6.95305 47.116 5.94963C52.3006 4.95352 57.5184 4.18447 62.7362 3.45204C64.0091 3.26893 65.3417 3.60585 66.0644 3.65712C67.6622 3.28358 68.776 3.02723 69.8833 2.75624C71.5673 2.3534 73.4634 2.39002 74.9883 2.36805C77.2425 2.33143 79.5298 0.449087 82.0095 2.16297C82.9443 2.80751 84.7742 1.77478 86.2062 1.64294C89.866 1.2987 93.5323 1.00572 97.1987 0.734725C101.13 0.449078 105.068 0.0755391 109.007 0.00229626C111.374 -0.0416495 113.74 0.558947 116.114 0.624865C117.897 0.676135 119.688 0.178089 121.471 0.207387C124.382 0.251332 127.285 0.610215 130.196 0.668809C132.052 0.705431 134.055 -0.12221 135.745 0.397814C140.181 1.75281 144.649 0.991085 149.085 1.30603C154.502 1.68689 159.925 2.21424 165.308 2.99794C177.368 4.74844 189.494 6.36711 200.639 12.2998C202.794 13.4497 204.883 15.0391 206.573 16.8994C211.983 22.8687 210.823 30.8376 204.253 35.1662C195.422 40.9817 185.755 44.2556 175.797 46.4456C163.021 49.2581 150.152 51.5726 137.35 54.2533C125.363 56.7655 113.276 57.974 101.097 57.8862C95.4749 57.8422 89.8593 57.1244 84.2371 56.663C83.6338 56.6117 83.057 56.2382 82.4669 56.0111C82.447 55.7914 82.4271 55.5717 82.4073 55.352H82.4006Z"
-                  fill="#FFC633"
-                />
-              </svg>
-            </span>{" "}
-            for Life!
-          </span>
-          <span className="sm:hidden">Start your Child's Journey</span>
-        </span>
-      }
-      page={step}
-      getProgress={getProgress}
-      isLoading={isLoading}
-      error={error}
-    >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <CustomInput
-          name="childName"
-          label="Please Enter Following Details."
-          placeholder="Enter Child's Name"
-          control={control}
-          error={errors.childName?.message}
-        />
-        <CustomInput
-          name="parentName"
-          label=""
-          placeholder="Enter Parent Name"
-          control={control}
-          error={errors.parentName?.message}
-        />
-
-        <CustomInput
-          name="parentEmail"
-          label=""
-          placeholder="Parent Email ID"
-          control={control}
-          error={errors.parentEmail?.message}
-        />
-        {/* <CustomInput
-          name="phoneNumber"
-          label=""
-          placeholder=""
-          control={control}
-          error={errors.phoneNumber?.message}
-          inputType="mobile"
-        /> */}
-
-        <CustomButton
-          label="Book my free class!"
-          icon={false}
-          disabled={isLoading}
-          isLoading={isLoading}
-        />
-      </form>
-    </FormWrapper>
-  );
 
   const currentForm = () => {
     switch (step) {
