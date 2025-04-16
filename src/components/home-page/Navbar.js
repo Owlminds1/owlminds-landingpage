@@ -160,7 +160,7 @@ export default function Navbar() {
             className={`block rounded-md px-3 py-1 text-xl sm:text-5xl relative ${
               router.pathname === "/curriculum"
                 ? "font-bold text-black"
-                : "text-black hover:text-purple-700"
+                : "text-black font-semibold hover:text-purple-700"
             }`}
           >
             Curriculum+Pricing
@@ -185,7 +185,7 @@ export default function Navbar() {
           <Image
             src={NavGirl}
             alt="nav"
-            className="sm:hidden block mt-12"
+            className="sm:hidden block mt-10"
           />
         </div>
       </div>
