@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import Image from "next/image";
 import axios from "axios";
 import FormWrapper from "@/components/form-elements/FormWrapper";
@@ -46,9 +47,10 @@ const validationSchemaStep2 = Yup.object({
 const validationSchemaStep1 = Yup.object({
   whatsAppNumber: Yup.string()
     .required("Phone number is required")
-    .matches(
-      /^(\+91[\-\s]?)?[6-9]\d{9}$/,
-      "Phone number must be a valid Indian mobile number"
+    .test(
+      "is-valid-phone",
+      "Please enter a valid phone number",
+      (value) => !value || isValidPhoneNumber(value)
     ),
   selectGrade: Yup.string().required("Grade is required"),
 });
@@ -82,7 +84,7 @@ export default function Home() {
         ? validationSchemaStep2
         : validationSchemaStep3
     ),
-    mode: "onChange",
+    mode: "onBlur",
   });
 
   // Fetch country code based on IP address on page load
@@ -506,28 +508,29 @@ export default function Home() {
       } aspect-[395/1600] sm:aspect-[16/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
     >
       {/* Logo in top left corner */}
-      <div className="absolute top-4 left-4 z-50">
-        <Link href="/">
-          <Image
-            src={LogoNav}
-            alt="Logo"
-            width={200}
-            height={140}
-            priority
-            className="w-auto h-auto sm:hidden !w-[180px]"
-          />
-          <Image
-            src={LogoNav}
-            alt="Logo"
-            width={270}
-            height={150}
-            priority
-            className="w-auto h-auto ml-5 sm:block hidden !w-[200px]"
-          />
-        </Link>
-      </div>
-
       <div className="absolute sm:mx-24 sm:mt-20 mt-20">
+        <div className="absolute top-[-80] sm:left-[-4] sm:py-0 py-2 z-50">
+          <Link href="/">
+            <Image
+              src={LogoNav}
+              alt="Logo"
+              width={136}
+              height={38}
+              priority
+              className="w-auto h-auto p-4 sm:hidden !w-[180px]"
+            />
+            <Image
+              src={LogoNav}
+              alt="Logo"
+              width={207}
+              height={58}
+              priority
+              className="w-auto h-auto ml-3 sm:block hidden !w-[200px]"
+            />
+          </Link>
+        </div>
+
+        {/* <div className="absolute sm:mx-24 sm:mt-20 mt-20"> */}
         <div>{currentForm()}</div>
       </div>
 

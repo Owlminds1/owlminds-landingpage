@@ -117,11 +117,11 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`${isOpen ? "block h-screen fixed inset-0 pt-4 z-[10000] bg-white overflow-y-auto" : "hidden"} sm:hidden`}
+        className={`${isOpen ? "block h-screen fixed inset-0 pt-8 z-[10000] bg-white overflow-y-auto" : "hidden"} sm:hidden`}
         id="mobile-menu h-full"
       >
         {/* Header for mobile menu */}
-        <div className="flex justify-between items-center px-4 py-2 border-b">
+        <div className="flex justify-between items-center pl-6 pr-2">
            <Link href="/">
              <Image
                src={LogoNav}
@@ -160,7 +160,7 @@ export default function Navbar() {
             className={`block rounded-md px-3 py-1 text-xl sm:text-5xl relative ${
               router.pathname === "/curriculum"
                 ? "font-bold text-black"
-                : "text-black hover:text-purple-700"
+                : "text-black font-semibold hover:text-purple-700"
             }`}
           >
             Curriculum+Pricing
@@ -185,7 +185,7 @@ export default function Navbar() {
           <Image
             src={NavGirl}
             alt="nav"
-            className="sm:hidden block"
+            className="sm:hidden block mt-10"
           />
         </div>
       </div>
