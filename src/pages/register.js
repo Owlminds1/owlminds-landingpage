@@ -273,7 +273,7 @@ export default function Home() {
             </span>{" "}
             for Life!
           </span>
-          <span className="sm:hidden">Start your Child's Journey</span>
+          <span className="sm:hidden text-white">Start your Child's Journey</span>
         </span>
       }
       page={step}
@@ -373,7 +373,7 @@ export default function Home() {
               </span>{" "}
               for Life!
             </span>
-            <span className="sm:hidden">Start your Child's Journey</span>
+            <span className="sm:hidden text-white">Start your Child's Journey</span>
           </span>
         }
         page={step}
@@ -442,7 +442,7 @@ export default function Home() {
             </span>{" "}
             for Life!
           </span>
-          <span className="sm:hidden">Start your Child's Journey</span>
+          <span className="sm:hidden text-white">Start your Child's Journey</span>
         </span>
       }
       page={step}
@@ -506,11 +506,11 @@ export default function Home() {
           : step === 2
           ? "bg-[url(../assets/images/form-bg-mobile-2.jpeg)] sm:bg-[url(../assets/images/form-bg-2.jpeg)]"
           : "bg-[url(../assets/images/form-bg-mobile-3.jpeg)] sm:bg-[url(../assets/images/form-bg-3.jpeg)]"
-      } aspect-[395/1600] sm:aspect-[16/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
+      } aspect-[395/1600] sm:aspect-[15/9] bg-no-repeat bg-cover bg-top w-full flex justify-center items-start sm:items-center`}
     >
       {/* Logo in top left corner */}
-      <div className="absolute sm:mx-24 sm:mt-20 mt-20">
-        <div className="absolute top-[-80] sm:left-[-4] sm:py-0 py-2 z-50">
+      <div className="absolute sm:mx-24 sm:mt-10 mt-20">
+        <div className="absolute top-[-90] sm:left-[-4] sm:py-0 py-2 z-50">
           <Link href="/">
             <Image
               src={LogoNav}

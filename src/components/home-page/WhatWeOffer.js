@@ -188,7 +188,7 @@ export default function WhatWeOffer({ ribbon, backImg }) {
       {ribbon && (
         <div className="absolute w-full">
           <div className="grid grid-cols-4">
-            <div className="relative -left-14 sm:left-0 col-span-3 top-21 sm:-top-42 z-50">
+            <div className="relative -left-14 sm:left-0 col-span-3 top-21 sm:-top-45 z-50 sm:w-275">
               <Image src={RibbonImage1} layout="intrinsic" objectFit="cover" />
             </div>
             <div>

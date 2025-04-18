@@ -156,16 +156,16 @@ export default function HeroSection() {
       </div>
 
       {/* ABOUT SECTION */}
-      <div className="flex flex-col sm:flex-row items-start gap-x-60">
+      <div className="flex flex-col sm:flex-row items-start gap-x-30">
         <div className="w-full mb-4 sm:mb-0 flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start">
           <div className="h-12 w-12 sm:h-20 sm:w-20 ">
             <Image src={AboutUsIcon} />
           </div>
           <h2 className="text-3xl md:text-5xl font-medium sm:pl-8 -mt-4 sm:mt-0">
-            ABOUT OwlMinds
+            ABOUT <br/> OwlMinds
           </h2>
         </div>
-        <p className="text-base sm:text-2xl max-w-2xl text-center sm:text-left">
+        <p className="text-base sm:text-2xl text-center sm:text-left sm:w-500">
         At OwlMinds, we don’t just prepare kids for tests—we prepare them for life. We nurture 15 <b>Officer-Like Qualities (OLQs) </b> inspired by elite <b> Armed Forces training </b>, and power that foundation with future-ready tools like AI, Metaverse, Financial Literacy, and Entrepreneurship.<br/><br/><b>“The result?”</b> Bold young leaders who create, lead, and thrive. OwlMinds turns your child into a <b>Creator for Life</b>—not just a consumer!
         </p>
       </div>
