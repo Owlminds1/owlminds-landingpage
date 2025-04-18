@@ -16,6 +16,7 @@ import LogoNav from "@/assets/images/owlmindsLogoNew1.png";
 // Determine base URL based on environment
 const nodeEnv = process.env.NODE_ENV;
 const baseUrl = "https://dev-api.owlminds.com/";
+const owlID = Math.random().toString(36).substring(2, 7);
 
 // Month mapping for converting digits to strings
 const monthMap = {
@@ -166,7 +167,7 @@ export default function Home() {
       if (step === 1) {
         const values = getValues();
         const payload = {
-          owl_id: Math.random().toString(36).substring(2, 7),
+          owl_id: owlID,
           grade: values.selectGrade,
           whatsapp_number: values.whatsAppNumber,
         };
@@ -181,7 +182,7 @@ export default function Home() {
       } else if (step === 2) {
         const values = getValues();
         const payload = {
-          owl_id: Math.random().toString(36).substring(2, 7),
+          owl_id: owlID,
           slot_date: values.selectDate,
           slot_time: values.selectSlot,
         };
@@ -219,7 +220,7 @@ export default function Home() {
         child_name: data.childName,
         parent_name: data.parentName,
         email: data.parentEmail,
-        owl_id: Math.random().toString(36).substring(2, 7),
+        owl_id: owlID,
       };
 
       await handleApiCall(
