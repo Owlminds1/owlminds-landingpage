@@ -25,9 +25,6 @@ export default function CustomNumberInput({
 }
 
 function NumberInput({ onChange, value, data, type }) {
-  // Debug data
-  console.log(`NumberInput (${type}) data:`, data, "value:", value);
-
   if (!data || data.length === 0) {
     return (
       <div className="text-gray-500 text-sm">
@@ -40,7 +37,6 @@ function NumberInput({ onChange, value, data, type }) {
     <div>
       <div className="grid grid-cols-3 gap-4">
         {data.map((item) => {
-          debugger;
           const { id, value: itemValue, label } = item; // Use id, value, label
 
           return (
