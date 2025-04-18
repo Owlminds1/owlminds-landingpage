@@ -272,7 +272,7 @@ export default function Home() {
             </span>{" "}
             for Life!
           </span>
-          <span className="sm:hidden">Start your Child's Journey</span>
+          <span className="sm:hidden text-white">Start your Child's Journey</span>
         </span>
       }
       page={step}
@@ -372,7 +372,7 @@ export default function Home() {
               </span>{" "}
               for Life!
             </span>
-            <span className="sm:hidden">Start your Child's Journey</span>
+            <span className="sm:hidden text-white">Start your Child's Journey</span>
           </span>
         }
         page={step}
